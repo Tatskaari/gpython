@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.4
+#!/usr/bin/env python3.8
 
 # Copyright 2018 The go-python Authors.  All rights reserved.
 # Use of this source code is governed by a BSD-style
@@ -159,12 +159,22 @@ inp = [
     ("a(b,c)", "eval"),
     ("a(b,*c)", "eval"),
     ("a(*b)", "eval"),
-    ("a(*b,c)", "eval", SyntaxError),
+    ("a(*b,c)", "eval"),
     ("a(b,*c,**d)", "eval"),
+    ("a(*b,c=d,*e,**f)", "eval"),
+    ("a(b=c,*d,**e)", "eval"),
+    ("a(*b,c,**d)", "eval"),
+    ("a(*b,not c,**d)", "eval"),
+    ("a(*b,c,**d,)", "eval"),
+    ("a(*b,c,**d,x=e)", "eval"),
+    ("a(*b,c,**d,x=e,**f,g=h)", "eval"),
+    ("a(*b,c,**d,e)", "eval", SyntaxError),
     ("a(b,**c)", "eval"),
     ("a(a=b)", "eval"),
+    ("a(a,a=b,c,*args,**kwargs)", "eval", SyntaxError),
     ("a(a,a=b,*args,**kwargs)", "eval"),
-    ("a(a,a=b,*args,e=f,**kwargs)", "eval"),
+    ("a(a,a=b,**kwargs,*args)", "eval", SyntaxError),
+    ("a(a,*b,a=d,*args,e=f,**kwargs,)", "eval"),
     ("a(b for c in d)", "eval"),
     ("a.b", "eval"),
     ("a.b.c.d", "eval"),
@@ -239,6 +249,7 @@ inp = [
 
     # Compound statements
     ("while True: pass", "exec"),
+    ("while foo := True: print(foo)", "exec"),
     ("while True:\n pass\n", "exec"),
     ("while True:\n pass\nelse:\n return\n", "exec"),
     ("if True: pass", "exec"),
@@ -287,6 +298,7 @@ else:
     ("for a in b: pass", "exec"),
     ("for a, b in b: pass", "exec"),
     ("for a, b in b:\n pass\nelse: break\n", "exec"),
+    ("async for a, b in b:\n pass\nelse: break\n", "exec"),
     ("""\
 try:
     pass
@@ -345,6 +357,10 @@ with x as y:
     pass
 """, "exec"),
     ("""\
+async with x as y:
+    pass
+""", "exec"),
+    ("""\
 with x as y, a as b, c, d as e:
     pass
     continue
@@ -370,6 +386,8 @@ with x as y, a as b, c, d as e:
 
     # Assign
     ("a = b", "exec"),
+    ("a: int = b", "exec"),
+    ("a = await b", "exec"),
     ("a = 007", "exec", SyntaxError, "illegal decimal with leading zero"),
     ("a = b = c", "exec"),
     ("a, b = 1, 2", "exec"),
@@ -413,6 +431,7 @@ with x as y, a as b, c, d as e:
 
     # function
     ("def fn(): pass", "exec"),
+    ("async def fn(): pass", "exec"),
     ("def fn(a): pass", "exec"),
     ("def fn(a, b): pass", "exec"),
     ("def fn(a, b,): pass", "exec"),
@@ -424,8 +443,12 @@ with x as y, a as b, c, d as e:
     ("def fn(a, c=d, **kws): pass", "exec"),
     ("def fn(*args, c=d): pass", "exec"),
     ("def fn(a, *, c=d): pass", "exec"),
+    ("def fn(a, /, *, c=d): pass", "exec"),
+    ("def fn(a: int, /, *, c=d) -> None: pass", "exec"),
+    ("def fn(a: int, /, *, c: float=d, **kws) -> None: pass", "exec"),
     ("def fn(*args, c=d, **kws): pass", "exec"),
     ("def fn(**kws): pass", "exec"),
+    ("def fn(**kws,): pass", "exec"),
     ("def fn() -> None: pass", "exec"),
     ("def fn(a:'potato') -> 'sausage': pass", "exec"),
     ("del f()", "exec", SyntaxError),
@@ -437,6 +460,11 @@ with x as y, a as b, c, d as e:
     ("class A(B,C): pass", "exec"),
     ("class A(B,C,D=F): pass", "exec"),
     ("class A(B,C,D=F,*AS,**KWS): pass", "exec"),
+    ("""\
+class A(B,C,D=F,*AS,**KWS):
+    a: int
+    b: float = 4
+""", "exec"),
 
     # decorators
     ("""\
@@ -528,7 +556,7 @@ errString string
             except exc as e:
                 error = e.msg
             else:
-                raise ValueError("Expecting exception %s" % exc)
+                raise ValueError("Expecting exception %s from\n%s" % (exc, source))
             if errString != "":
                 error = errString # override error string
             dmp = ""
