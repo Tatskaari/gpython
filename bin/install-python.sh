@@ -1,7 +1,7 @@
 #!/bin/bash
-# This downloads and install python3.4 to the directory passed in
+# This downloads and install python3.8 to the directory passed in
 
-VERSION=3.4.9
+VERSION=3.8.5
 DEST=$1
 
 if [ "$DEST" = "" ]; then
@@ -9,7 +9,7 @@ if [ "$DEST" = "" ]; then
     exit 1
 fi
 
-if [ -e "$DEST/bin/python3.4" ]; then
+if [ -e "$DEST/bin/python3.8" ]; then
     echo "Python already installed in $DEST - skipping install"
     exit 0
 fi

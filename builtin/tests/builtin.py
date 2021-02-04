@@ -438,7 +438,7 @@ assert [e for e in zip(a, b)] == [(3,8), (4,9), (5,10), (6,11), (7,12)]
 try:
     zip(1,2,3)
 except TypeError as e:
-    if e.args[0] != "zip argument #1 must support iteration":
+    if e.args[0] not in ("zip argument #1 must support iteration", "'int' object is not iterable"):
         raise
     ok = True
 assert ok, "TypeError not raised"

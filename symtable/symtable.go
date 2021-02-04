@@ -133,7 +133,6 @@ func NewSymTable(Ast ast.Ast, filename string) (st *SymTable, err error) {
 		}
 	}()
 	st = newSymTable(ModuleBlock, "top", nil)
-	st.Unoptimized = optTopLevel
 	st.Filename = filename
 	// Parse into the symbol table
 	st.Parse(Ast)
@@ -361,7 +360,6 @@ func (st *SymTable) Parse(Ast ast.Ast) {
 				if st.Type != ModuleBlock {
 					st.panicSyntaxErrorf(node, "import * only allowed at module level")
 				}
-				st.Unoptimized |= optImportStar
 			}
 		case *ast.Return:
 			if node.Value != nil {
@@ -383,7 +381,6 @@ func (st *SymTable) newTmpName(node ast.Ast) {
 
 func (st *SymTable) parseComprehension(Ast ast.Ast, scopeName string, generators []ast.Comprehension, elt ast.Expr, value ast.Expr) {
 	_, isGenerator := Ast.(*ast.GeneratorExp)
-	needsTmp := !isGenerator
 	outermost := generators[0]
 	// Outermost iterator is evaluated in current scope
 	st.Parse(outermost.Iter)
@@ -393,10 +390,6 @@ func (st *SymTable) parseComprehension(Ast ast.Ast, scopeName string, generators
 	// Outermost iter is received as an argument
 	id := ast.Identifier(fmt.Sprintf(".%d", 0))
 	stNew.AddDef(Ast, id, DefParam)
-	// Allocate temporary name if needed
-	if needsTmp {
-		stNew.newTmpName(Ast)
-	}
 	stNew.Parse(outermost.Target)
 	for _, expr := range outermost.Ifs {
 		stNew.Parse(expr)

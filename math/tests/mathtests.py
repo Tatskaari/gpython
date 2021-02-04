@@ -459,9 +459,11 @@ for vals, expected in test_values:
 #     assertEqual(msum(vals), math.fsum(vals))
 
 doc="Hypot"
-assertRaises(TypeError, math.hypot)
 ftest('hypot(0,0)', math.hypot(0,0), 0)
 ftest('hypot(3,4)', math.hypot(3,4), 5)
+# These work in python 3.8:
+# ftest('hypot(3,4,0)', math.hypot(3,4,0), 5)
+# assertEqual(math.hypot(), 0)
 assertEqual(math.hypot(NAN, INF), INF)
 assertEqual(math.hypot(INF, NAN), INF)
 assertEqual(math.hypot(NAN, NINF), INF)

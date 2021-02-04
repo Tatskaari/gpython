@@ -29,16 +29,16 @@ matrix:
 
 cache:
   directories:
-    - $HOME/bin/python3.4
+    - $HOME/bin/python3.8
 
 before_install:
-  - ./bin/install-python.sh $HOME/bin/python3.4
+  - ./bin/install-python.sh $HOME/bin/python3.8
 
 script:
  - go install -v $TAGS ./...
- - GOARCH=386   go test $TAGS ./...
- - GOARCH=amd64 go run ./ci/run-tests.go -race $TAGS $COVERAGE
- - python3 py3test.py
+ - PATH=$HOME/bin/python3.8/bin:$PATH GOARCH=386   go test $TAGS ./...
+ - PATH=$HOME/bin/python3.8/bin:$PATH GOARCH=amd64 go run ./ci/run-tests.go -race $TAGS $COVERAGE
+ - PATH=$HOME/bin/python3.8/bin:$PATH python3.8 py3test.py
 
 after_success:
  - bash <(curl -s https://codecov.io/bash)

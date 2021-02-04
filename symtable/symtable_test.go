@@ -15,12 +15,14 @@ import (
 )
 
 func EqString(t *testing.T, name string, a, b string) {
+	t.Helper()
 	if a != b {
 		t.Errorf("%s want %q, got %q", name, a, b)
 	}
 }
 
 func EqStrings(t *testing.T, name string, a, b []string) {
+	t.Helper()
 	if len(a) != len(b) {
 		t.Errorf("%s has differing length, want %v, got %v", name, a, b)
 		return
@@ -33,30 +35,35 @@ func EqStrings(t *testing.T, name string, a, b []string) {
 }
 
 func EqInt(t *testing.T, name string, a, b int) {
+	t.Helper()
 	if a != b {
 		t.Errorf("%s want %v, got %v", name, a, b)
 	}
 }
 
 func EqScope(t *testing.T, name string, a, b Scope) {
+	t.Helper()
 	if a != b {
 		t.Errorf("%s want %v, got %v", name, a, b)
 	}
 }
 
 func EqBlockType(t *testing.T, name string, a, b BlockType) {
+	t.Helper()
 	if a != b {
 		t.Errorf("%s want %v, got %v", name, a, b)
 	}
 }
 
 func EqBool(t *testing.T, name string, a, b bool) {
+	t.Helper()
 	if a != b {
 		t.Errorf("%s want %v, got %v", name, a, b)
 	}
 }
 
 func EqSymbol(t *testing.T, name string, a, b Symbol) {
+	t.Helper()
 	EqScope(t, name+".Scope", a.Scope, b.Scope)
 	EqInt(t, name+".Flags", int(a.Flags), int(b.Flags))
 }

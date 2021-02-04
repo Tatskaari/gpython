@@ -5,7 +5,7 @@
 # license that can be found in the LICENSE file.
 
 """
-Check all the tests work with python3.4 and gpython
+Check all the tests work with python3.8 and gpython
 
 Note that this isn't quite the same as running the unit tests - the
 unit tests should be preferred.  This is a quick check to make sure
@@ -17,7 +17,7 @@ import sys
 from subprocess import Popen, PIPE, STDOUT
 from collections import defaultdict
 
-py_version = "python3.4"
+py_version = "python3.8"
 
 opt_install = "/opt/"+py_version
 

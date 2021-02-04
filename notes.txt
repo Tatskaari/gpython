@@ -34,7 +34,7 @@ Features
 
   * lexes, parses and compiles all the py3 source in the python distribution
 
-find /usr/lib/python3.4 /usr/lib/python3/ -type f -name \*.py  | xargs testparser
+find /usr/lib/python3.8 /usr/lib/python3/ -type f -name \*.py  | xargs testparser
 Failes on /usr/lib/python3/dist-packages/mpmath/usertools.py
 - DOS mode problem
 

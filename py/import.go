@@ -16,7 +16,7 @@ import (
 
 var (
 	// This will become sys.path one day ;-)
-	modulePath = []string{"", "/usr/lib/python3.4", "/usr/local/lib/python3.4/dist-packages", "/usr/lib/python3/dist-packages"}
+	modulePath = []string{"", "/usr/lib/python3.8", "/usr/local/lib/python3.8/dist-packages", "/usr/lib/python3/dist-packages"}
 )
 
 // The workings of __import__

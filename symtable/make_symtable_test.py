@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.4
+#!/usr/bin/env python3.8
 
 # Copyright 2018 The go-python Authors.  All rights reserved.
 # Use of this source code is governed by a BSD-style
@@ -48,12 +48,12 @@ def fn(a):
 def inner():
   print(x)
   global x
-''', "exec"),
+''', "exec", SyntaxError),
     ('''\
 def fn(a):
     b = 6
     global b
-    b = a''', "exec"),
+    b = a''', "exec", SyntaxError),
     ('''\
 def fn(a=b,c=1):
     return a+b''', "exec"),
@@ -80,13 +80,13 @@ def outer():
    def inner():
        print(x)
        nonlocal x
-''', "exec"),
+''', "exec", SyntaxError),
     ('''\
 def outer():
    x = 1
    def inner():
        x = 2
-       nonlocal x''', "exec"),
+       nonlocal x''', "exec", SyntaxError),
     ('''\
 def outer():
    x = 1
@@ -246,7 +246,7 @@ def dump_symtable(st):
     out += 'Name:"%s",\n' % st.get_name() # Return the table’s name. This is the name of the class if the table is for a class, the name of the function if the table is for a function, or 'top' if the table is global (get_type() returns 'module').
 
     out += 'Lineno:%s,\n' % st.get_lineno() # Return the number of the first line in the block this table represents.
-    out += 'Unoptimized:%s,\n' % dump_flags(st._table.optimized, OPT_FLAGS) # Return False if the locals in this table can be optimized.
+    # out += 'Unoptimized: 0,\n' # Python 3.5+ does not allow optimizations to be turned off.
     out += 'Nested:%s,\n' % dump_bool(st.is_nested()) # Return True if the block is a nested class or function.
 
     if use_readsymtab:
@@ -322,22 +322,25 @@ errString string
 }{"""]
     for x in inp:
         source, mode = x[:2]
-        if len(x) > 2:
-            exc = x[2]
-            try:
-                table = symtable(source, "<string>", mode)
-            except exc as e:
-                error = e.msg
+        try:
+            if len(x) > 2:
+                exc = x[2]
+                try:
+                    table = symtable(source, "<string>", mode)
+                except exc as e:
+                    error = e.msg
+                else:
+                    raise ValueError("Expecting exception %s" % exc)
+                dumped_symtable = "nil"
+                gostring = "nil"
+                exc_name = "py.%s" % exc.__name__
             else:
-                raise ValueError("Expecting exception %s" % exc)
-            dumped_symtable = "nil"
-            gostring = "nil"
-            exc_name = "py.%s" % exc.__name__
-        else:
-            table = symtable(source, "<string>", mode)
-            exc_name = "nil"
-            error = ""
-            dumped_symtable = dump_symtable(table)
+                table = symtable(source, "<string>", mode)
+                exc_name = "nil"
+                error = ""
+                dumped_symtable = dump_symtable(table)
+        except SyntaxError as ex:
+            raise SyntaxError(f"Error compiling\n{source}") from ex
         out.append('{"%s", "%s", %s, %s, "%s"},' % (escape(source), mode, dumped_symtable, exc_name, escape(error)))
     out.append("}\n")
     print("Writing %s" % path)

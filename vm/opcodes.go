@@ -16,6 +16,7 @@ const (
 	ROT_THREE   OpCode = 3
 	DUP_TOP     OpCode = 4
 	DUP_TOP_TWO OpCode = 5
+	ROT_FOUR    OpCode = 6
 	NOP         OpCode = 9
 
 	UNARY_POSITIVE OpCode = 10
@@ -23,6 +24,9 @@ const (
 	UNARY_NOT      OpCode = 12
 
 	UNARY_INVERT OpCode = 15
+
+	BINARY_MATRIX_MULTIPLY  OpCode = 16
+	INPLACE_MATRIX_MULTIPLY OpCode = 17
 
 	BINARY_POWER OpCode = 19
 
@@ -37,6 +41,13 @@ const (
 	INPLACE_FLOOR_DIVIDE OpCode = 28
 	INPLACE_TRUE_DIVIDE  OpCode = 29
 
+	GET_AITER         OpCode = 50
+	GET_ANEXT         OpCode = 51
+	BEFORE_ASYNC_WITH OpCode = 52
+	BEGIN_FINALLY     OpCode = 53
+	END_ASYNC_FOR     OpCode = 54
+
+	// STORE_MAP was removed
 	STORE_MAP        OpCode = 54
 	INPLACE_ADD      OpCode = 55
 	INPLACE_SUBTRACT OpCode = 56
@@ -57,16 +68,24 @@ const (
 	LOAD_BUILD_CLASS OpCode = 71
 	YIELD_FROM       OpCode = 72
 
+	GET_YIELD_FROM_ITER OpCode = 69
+	GET_AWAITABLE       OpCode = 73
+
 	INPLACE_LSHIFT OpCode = 75
 	INPLACE_RSHIFT OpCode = 76
 	INPLACE_AND    OpCode = 77
 	INPLACE_XOR    OpCode = 78
 	INPLACE_OR     OpCode = 79
-	BREAK_LOOP     OpCode = 80
-	WITH_CLEANUP   OpCode = 81
+	BREAK_LOOP     OpCode = 80 // Removed
+	WITH_CLEANUP   OpCode = 81 // Removed, replaced with WITH_CLEANUP_START
+
+	WITH_CLEANUP_START  OpCode = 81
+	WITH_CLEANUP_FINISH OpCode = 82
 
 	RETURN_VALUE OpCode = 83
 	IMPORT_STAR  OpCode = 84
+
+	SETUP_ANNOTATIONS OpCode = 85
 
 	YIELD_VALUE OpCode = 86
 	POP_BLOCK   OpCode = 87
@@ -106,9 +125,9 @@ const (
 
 	LOAD_GLOBAL OpCode = 116 // Index in name list
 
-	CONTINUE_LOOP OpCode = 119 // Start of loop (absolute)
-	SETUP_LOOP    OpCode = 120 // Target address (relative)
-	SETUP_EXCEPT  OpCode = 121 // ""
+	CONTINUE_LOOP OpCode = 119 // Removed
+	SETUP_LOOP    OpCode = 120 // Removed
+	SETUP_EXCEPT  OpCode = 121 // Removed
 	SETUP_FINALLY OpCode = 122 // ""
 
 	LOAD_FAST   OpCode = 124 // Local variable number
@@ -121,7 +140,7 @@ const (
 	MAKE_FUNCTION OpCode = 132 // #defaults + #kwdefaults<<8 + #annotations<<16
 	BUILD_SLICE   OpCode = 133 // Number of items
 
-	MAKE_CLOSURE OpCode = 134 // same as MAKE_FUNCTION
+	MAKE_CLOSURE OpCode = 134 // Removed
 	LOAD_CLOSURE OpCode = 135 // Load free variable from closure
 	LOAD_DEREF   OpCode = 136 // Load and dereference from closure cell
 	STORE_DEREF  OpCode = 137 // Store into cell
@@ -129,9 +148,10 @@ const (
 
 	// The next 3 opcodes must be contiguous and satisfy
 	// (CALL_FUNCTION_VAR - CALL_FUNCTION) & 3 == 1
-	CALL_FUNCTION_VAR    OpCode = 140 // #args + (#kwargs<<8)
+	CALL_FUNCTION_VAR    OpCode = 140 // Removed
 	CALL_FUNCTION_KW     OpCode = 141 // #args + (#kwargs<<8)
-	CALL_FUNCTION_VAR_KW OpCode = 142 // #args + (#kwargs<<8)
+	CALL_FUNCTION_VAR_KW OpCode = 142 // Removed
+	CALL_FUNCTION_EX     OpCode = 142
 
 	SETUP_WITH OpCode = 143
 
@@ -143,6 +163,23 @@ const (
 	MAP_ADD     OpCode = 147
 
 	LOAD_CLASSDEREF OpCode = 148 // New in Python 3.4
+
+	// Added after Python 3.4
+	BUILD_LIST_UNPACK            OpCode = 149
+	BUILD_MAP_UNPACK             OpCode = 150
+	BUILD_MAP_UNPACK_WITH_CALL   OpCode = 151
+	BUILD_TUPLE_UNPACK           OpCode = 152
+	BUILD_SET_UNPACK             OpCode = 153
+	SETUP_ASYNC_WITH             OpCode = 154
+	FORMAT_VALUE                 OpCode = 155
+	BUILD_CONST_KEY_MAP          OpCode = 156
+	BUILD_STRING                 OpCode = 157
+	BUILD_TUPLE_UNPACK_WITH_CALL OpCode = 158
+
+	LOAD_METHOD  OpCode = 160
+	CALL_METHOD  OpCode = 161
+	CALL_FINALLY OpCode = 162
+	POP_FINALLY  OpCode = 163
 )
 
 // Rich comparison opcodes

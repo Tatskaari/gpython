@@ -47,7 +47,7 @@ sys.stdout.close()`,
 		flags,
 		dont_inherit_str,
 	)
-	cmd := exec.Command("python3.4", "-c", code)
+	cmd := exec.Command("python3.8", "-c", code)
 	cmd.Stdin = strings.NewReader(str)
 	var out bytes.Buffer
 	cmd.Stdout = &out
@@ -55,7 +55,7 @@ sys.stdout.close()`,
 	cmd.Stderr = &stderr
 	err := cmd.Run()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "--- Failed to run python3.4 compile ---\n")
+		fmt.Fprintf(os.Stderr, "--- Failed to run python3.8 compile ---\n")
 		fmt.Fprintf(os.Stderr, "--------------------\n")
 		_, _ = os.Stderr.Write(stderr.Bytes())
 		fmt.Fprintf(os.Stderr, "--------------------\n")
