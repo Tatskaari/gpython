@@ -473,6 +473,11 @@ def fn():
     pass
 """, "exec"),
     ("""\
+@dec
+async def fn():
+    pass
+""", "exec"),
+    ("""\
 @dec()
 def fn():
     pass

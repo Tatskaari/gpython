@@ -409,6 +409,9 @@ decorated:
 		case *ast.FunctionDef:
 			x.DecoratorList = $1
 			$$ = x
+		case *ast.AsyncFunctionDef:
+			x.DecoratorList = $1
+			$$ = x
 		default:
 			panic("bad type for decorated")
 		}

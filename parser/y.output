@@ -190,68 +190,68 @@ state 8
 	optional_semicolon: .    (72)
 
 	';'  shift 104
-	.  reduce 72 (src line 683)
+	.  reduce 72 (src line 686)
 
 	optional_semicolon  goto 105
 
 state 9
 	compound_stmt:  if_stmt.    (164)
 
-	.  reduce 164 (src line 1154)
+	.  reduce 164 (src line 1157)
 
 
 state 10
 	compound_stmt:  while_stmt.    (165)
 
-	.  reduce 165 (src line 1159)
+	.  reduce 165 (src line 1162)
 
 
 state 11
 	compound_stmt:  for_stmt.    (166)
 
-	.  reduce 166 (src line 1163)
+	.  reduce 166 (src line 1166)
 
 
 state 12
 	compound_stmt:  try_stmt.    (167)
 
-	.  reduce 167 (src line 1167)
+	.  reduce 167 (src line 1170)
 
 
 state 13
 	compound_stmt:  with_stmt.    (168)
 
-	.  reduce 168 (src line 1171)
+	.  reduce 168 (src line 1174)
 
 
 state 14
 	compound_stmt:  funcdef.    (169)
 
-	.  reduce 169 (src line 1175)
+	.  reduce 169 (src line 1178)
 
 
 state 15
 	compound_stmt:  classdef.    (170)
 
-	.  reduce 170 (src line 1179)
+	.  reduce 170 (src line 1182)
 
 
 state 16
 	compound_stmt:  decorated.    (171)
 
-	.  reduce 171 (src line 1183)
+	.  reduce 171 (src line 1186)
 
 
 state 17
 	compound_stmt:  async_stmt.    (172)
 
-	.  reduce 172 (src line 1187)
+	.  reduce 172 (src line 1190)
 
 
 state 18
 	small_stmts:  small_stmt.    (74)
 
-	.  reduce 74 (src line 685)
+	.  reduce 74 (src line 688)
 
 
 state 19
@@ -454,7 +454,7 @@ state 26
 state 27
 	async_stmt:  async_funcdef.    (173)
 
-	.  reduce 173 (src line 1192)
+	.  reduce 173 (src line 1195)
 
 
 state 28
@@ -474,49 +474,49 @@ state 28
 state 29
 	small_stmt:  expr_stmt.    (77)
 
-	.  reduce 77 (src line 702)
+	.  reduce 77 (src line 705)
 
 
 state 30
 	small_stmt:  del_stmt.    (78)
 
-	.  reduce 78 (src line 707)
+	.  reduce 78 (src line 710)
 
 
 state 31
 	small_stmt:  pass_stmt.    (79)
 
-	.  reduce 79 (src line 711)
+	.  reduce 79 (src line 714)
 
 
 state 32
 	small_stmt:  flow_stmt.    (80)
 
-	.  reduce 80 (src line 715)
+	.  reduce 80 (src line 718)
 
 
 state 33
 	small_stmt:  import_stmt.    (81)
 
-	.  reduce 81 (src line 719)
+	.  reduce 81 (src line 722)
 
 
 state 34
 	small_stmt:  global_stmt.    (82)
 
-	.  reduce 82 (src line 723)
+	.  reduce 82 (src line 726)
 
 
 state 35
 	small_stmt:  nonlocal_stmt.    (83)
 
-	.  reduce 83 (src line 727)
+	.  reduce 83 (src line 730)
 
 
 state 36
 	small_stmt:  assert_stmt.    (84)
 
-	.  reduce 84 (src line 731)
+	.  reduce 84 (src line 734)
 
 
 state 37
@@ -546,7 +546,7 @@ state 38
 	PIPEEQ  shift 140
 	':'  shift 133
 	'='  shift 147
-	.  reduce 88 (src line 769)
+	.  reduce 88 (src line 772)
 
 	annassign  goto 130
 	augassign  goto 131
@@ -591,49 +591,49 @@ state 39
 state 40
 	pass_stmt:  PASS.    (118)
 
-	.  reduce 118 (src line 914)
+	.  reduce 118 (src line 917)
 
 
 state 41
 	flow_stmt:  break_stmt.    (119)
 
-	.  reduce 119 (src line 920)
+	.  reduce 119 (src line 923)
 
 
 state 42
 	flow_stmt:  continue_stmt.    (120)
 
-	.  reduce 120 (src line 925)
+	.  reduce 120 (src line 928)
 
 
 state 43
 	flow_stmt:  return_stmt.    (121)
 
-	.  reduce 121 (src line 929)
+	.  reduce 121 (src line 932)
 
 
 state 44
 	flow_stmt:  raise_stmt.    (122)
 
-	.  reduce 122 (src line 933)
+	.  reduce 122 (src line 936)
 
 
 state 45
 	flow_stmt:  yield_stmt.    (123)
 
-	.  reduce 123 (src line 937)
+	.  reduce 123 (src line 940)
 
 
 state 46
 	import_stmt:  import_name.    (132)
 
-	.  reduce 132 (src line 984)
+	.  reduce 132 (src line 987)
 
 
 state 47
 	import_stmt:  import_from.    (133)
 
-	.  reduce 133 (src line 989)
+	.  reduce 133 (src line 992)
 
 
 state 48
@@ -706,20 +706,20 @@ state 52
 	optional_comma: .    (99)
 
 	','  shift 155
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 156
 
 state 53
 	break_stmt:  BREAK.    (124)
 
-	.  reduce 124 (src line 942)
+	.  reduce 124 (src line 945)
 
 
 state 54
 	continue_stmt:  CONTINUE.    (125)
 
-	.  reduce 125 (src line 948)
+	.  reduce 125 (src line 951)
 
 
 state 55
@@ -742,7 +742,7 @@ state 55
 	'~'  shift 81
 	'['  shift 87
 	'{'  shift 88
-	.  reduce 126 (src line 954)
+	.  reduce 126 (src line 957)
 
 	strings  goto 91
 	expr  goto 72
@@ -785,7 +785,7 @@ state 56
 	'~'  shift 81
 	'['  shift 87
 	'{'  shift 88
-	.  reduce 129 (src line 970)
+	.  reduce 129 (src line 973)
 
 	strings  goto 91
 	expr  goto 72
@@ -808,7 +808,7 @@ state 56
 state 57
 	yield_stmt:  yield_expr.    (128)
 
-	.  reduce 128 (src line 964)
+	.  reduce 128 (src line 967)
 
 
 state 58
@@ -837,7 +837,7 @@ state 59
 state 60
 	test_or_star_exprs:  test_or_star_expr.    (95)
 
-	.  reduce 95 (src line 805)
+	.  reduce 95 (src line 808)
 
 
 state 61
@@ -863,7 +863,7 @@ state 61
 	'~'  shift 81
 	'['  shift 87
 	'{'  shift 88
-	.  reduce 328 (src line 2151)
+	.  reduce 328 (src line 2154)
 
 	strings  goto 91
 	expr  goto 72
@@ -890,13 +890,13 @@ state 61
 state 62
 	test_or_star_expr:  test.    (97)
 
-	.  reduce 97 (src line 816)
+	.  reduce 97 (src line 819)
 
 
 state 63
 	test_or_star_expr:  star_expr.    (98)
 
-	.  reduce 98 (src line 821)
+	.  reduce 98 (src line 824)
 
 
 state 64
@@ -906,13 +906,13 @@ state 64
 
 	IF  shift 170
 	OR  shift 171
-	.  reduce 203 (src line 1390)
+	.  reduce 203 (src line 1393)
 
 
 state 65
 	test:  lambdef.    (205)
 
-	.  reduce 205 (src line 1399)
+	.  reduce 205 (src line 1402)
 
 
 state 66
@@ -951,7 +951,7 @@ state 67
 	and_test:  and_test.AND not_test 
 
 	AND  shift 173
-	.  reduce 210 (src line 1426)
+	.  reduce 210 (src line 1429)
 
 
 state 68
@@ -961,7 +961,7 @@ state 68
 	NAME  shift 183
 	STARSTAR  shift 182
 	'*'  shift 181
-	.  reduce 67 (src line 658)
+	.  reduce 67 (src line 661)
 
 	vfpdeftest  goto 178
 	vfpdef  goto 180
@@ -974,7 +974,7 @@ state 68
 state 69
 	and_test:  not_test.    (212)
 
-	.  reduce 212 (src line 1443)
+	.  reduce 212 (src line 1446)
 
 
 state 70
@@ -1025,7 +1025,7 @@ state 71
 	NOT  shift 194
 	'<'  shift 186
 	'>'  shift 187
-	.  reduce 215 (src line 1465)
+	.  reduce 215 (src line 1468)
 
 	comp_op  goto 185
 
@@ -1034,7 +1034,7 @@ state 72
 	expr:  expr.'|' xor_expr 
 
 	'|'  shift 196
-	.  reduce 216 (src line 1470)
+	.  reduce 216 (src line 1473)
 
 
 state 73
@@ -1042,7 +1042,7 @@ state 73
 	xor_expr:  xor_expr.'^' and_expr 
 
 	'^'  shift 197
-	.  reduce 231 (src line 1548)
+	.  reduce 231 (src line 1551)
 
 
 state 74
@@ -1050,7 +1050,7 @@ state 74
 	and_expr:  and_expr.'&' shift_expr 
 
 	'&'  shift 198
-	.  reduce 233 (src line 1558)
+	.  reduce 233 (src line 1561)
 
 
 state 75
@@ -1060,7 +1060,7 @@ state 75
 
 	LTLT  shift 199
 	GTGT  shift 200
-	.  reduce 235 (src line 1568)
+	.  reduce 235 (src line 1571)
 
 
 state 76
@@ -1070,7 +1070,7 @@ state 76
 
 	'+'  shift 201
 	'-'  shift 202
-	.  reduce 237 (src line 1578)
+	.  reduce 237 (src line 1581)
 
 
 state 77
@@ -1086,13 +1086,13 @@ state 77
 	'*'  shift 203
 	'/'  shift 205
 	'%'  shift 206
-	.  reduce 240 (src line 1592)
+	.  reduce 240 (src line 1595)
 
 
 state 78
 	term:  factor.    (243)
 
-	.  reduce 243 (src line 1606)
+	.  reduce 243 (src line 1609)
 
 
 state 79
@@ -1173,7 +1173,7 @@ state 81
 state 82
 	factor:  power.    (252)
 
-	.  reduce 252 (src line 1645)
+	.  reduce 252 (src line 1648)
 
 
 state 83
@@ -1181,14 +1181,14 @@ state 83
 	power:  atom_expr.STARSTAR factor 
 
 	STARSTAR  shift 211
-	.  reduce 253 (src line 1650)
+	.  reduce 253 (src line 1653)
 
 
 state 84
 	atom_expr:  atom.trailers 
 	trailers: .    (257)
 
-	.  reduce 257 (src line 1671)
+	.  reduce 257 (src line 1674)
 
 	trailers  goto 212
 
@@ -1359,13 +1359,13 @@ state 88
 state 89
 	atom:  NAME.    (270)
 
-	.  reduce 270 (src line 1742)
+	.  reduce 270 (src line 1745)
 
 
 state 90
 	atom:  NUMBER.    (271)
 
-	.  reduce 271 (src line 1746)
+	.  reduce 271 (src line 1749)
 
 
 state 91
@@ -1373,37 +1373,37 @@ state 91
 	atom:  strings.    (272)
 
 	STRING  shift 231
-	.  reduce 272 (src line 1750)
+	.  reduce 272 (src line 1753)
 
 
 state 92
 	atom:  ELIPSIS.    (273)
 
-	.  reduce 273 (src line 1761)
+	.  reduce 273 (src line 1764)
 
 
 state 93
 	atom:  NONE.    (274)
 
-	.  reduce 274 (src line 1765)
+	.  reduce 274 (src line 1768)
 
 
 state 94
 	atom:  TRUE.    (275)
 
-	.  reduce 275 (src line 1769)
+	.  reduce 275 (src line 1772)
 
 
 state 95
 	atom:  FALSE.    (276)
 
-	.  reduce 276 (src line 1773)
+	.  reduce 276 (src line 1776)
 
 
 state 96
 	strings:  STRING.    (259)
 
-	.  reduce 259 (src line 1680)
+	.  reduce 259 (src line 1683)
 
 
 state 97
@@ -1534,14 +1534,14 @@ state 101
 	optional_comma: .    (99)
 
 	','  shift 238
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 239
 
 state 102
 	tests:  test.    (160)
 
-	.  reduce 160 (src line 1133)
+	.  reduce 160 (src line 1136)
 
 
 state 103
@@ -1583,7 +1583,7 @@ state 104
 	'~'  shift 81
 	'['  shift 87
 	'{'  shift 88
-	.  reduce 73 (src line 683)
+	.  reduce 73 (src line 686)
 
 	strings  goto 91
 	small_stmt  goto 240
@@ -1643,13 +1643,13 @@ state 107
 	atom:  NAME.    (270)
 
 	ASSIGN_EQ  shift 243
-	.  reduce 270 (src line 1742)
+	.  reduce 270 (src line 1745)
 
 
 state 108
 	namedexpr_test:  test.    (202)
 
-	.  reduce 202 (src line 1385)
+	.  reduce 202 (src line 1388)
 
 
 state 109
@@ -1672,14 +1672,14 @@ state 111
 	optional_comma: .    (99)
 
 	','  shift 246
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 247
 
 state 112
 	expr_or_star_exprs:  expr_or_star_expr.    (300)
 
-	.  reduce 300 (src line 1913)
+	.  reduce 300 (src line 1916)
 
 
 state 113
@@ -1687,13 +1687,13 @@ state 113
 	expr_or_star_expr:  expr.    (298)
 
 	'|'  shift 196
-	.  reduce 298 (src line 1903)
+	.  reduce 298 (src line 1906)
 
 
 state 114
 	expr_or_star_expr:  star_expr.    (299)
 
-	.  reduce 299 (src line 1908)
+	.  reduce 299 (src line 1911)
 
 
 state 115
@@ -1788,7 +1788,7 @@ state 116
 state 117
 	with_items:  with_item.    (189)
 
-	.  reduce 189 (src line 1309)
+	.  reduce 189 (src line 1312)
 
 
 state 118
@@ -1796,7 +1796,7 @@ state 118
 	with_item:  test.AS expr 
 
 	AS  shift 253
-	.  reduce 192 (src line 1326)
+	.  reduce 192 (src line 1329)
 
 
 state 119
@@ -1863,19 +1863,19 @@ state 127
 state 128
 	async_stmt:  ASYNC with_stmt.    (174)
 
-	.  reduce 174 (src line 1197)
+	.  reduce 174 (src line 1200)
 
 
 state 129
 	async_stmt:  ASYNC for_stmt.    (175)
 
-	.  reduce 175 (src line 1207)
+	.  reduce 175 (src line 1210)
 
 
 state 130
 	expr_stmt:  testlist_star_expr annassign.    (85)
 
-	.  reduce 85 (src line 741)
+	.  reduce 85 (src line 744)
 
 
 state 131
@@ -1927,7 +1927,7 @@ state 132
 	equals_yield_expr_or_testlist_star_expr:  equals_yield_expr_or_testlist_star_expr.'=' yield_expr_or_testlist_star_expr 
 
 	'='  shift 261
-	.  reduce 87 (src line 760)
+	.  reduce 87 (src line 763)
 
 
 state 133
@@ -1973,79 +1973,79 @@ state 133
 state 134
 	augassign:  PLUSEQ.    (104)
 
-	.  reduce 104 (src line 852)
+	.  reduce 104 (src line 855)
 
 
 state 135
 	augassign:  MINUSEQ.    (105)
 
-	.  reduce 105 (src line 857)
+	.  reduce 105 (src line 860)
 
 
 state 136
 	augassign:  STAREQ.    (106)
 
-	.  reduce 106 (src line 861)
+	.  reduce 106 (src line 864)
 
 
 state 137
 	augassign:  DIVEQ.    (107)
 
-	.  reduce 107 (src line 865)
+	.  reduce 107 (src line 868)
 
 
 state 138
 	augassign:  PERCEQ.    (108)
 
-	.  reduce 108 (src line 869)
+	.  reduce 108 (src line 872)
 
 
 state 139
 	augassign:  ANDEQ.    (109)
 
-	.  reduce 109 (src line 873)
+	.  reduce 109 (src line 876)
 
 
 state 140
 	augassign:  PIPEEQ.    (110)
 
-	.  reduce 110 (src line 877)
+	.  reduce 110 (src line 880)
 
 
 state 141
 	augassign:  HATEQ.    (111)
 
-	.  reduce 111 (src line 881)
+	.  reduce 111 (src line 884)
 
 
 state 142
 	augassign:  LTLTEQ.    (112)
 
-	.  reduce 112 (src line 885)
+	.  reduce 112 (src line 888)
 
 
 state 143
 	augassign:  GTGTEQ.    (113)
 
-	.  reduce 113 (src line 889)
+	.  reduce 113 (src line 892)
 
 
 state 144
 	augassign:  STARSTAREQ.    (114)
 
-	.  reduce 114 (src line 893)
+	.  reduce 114 (src line 896)
 
 
 state 145
 	augassign:  DIVDIVEQ.    (115)
 
-	.  reduce 115 (src line 897)
+	.  reduce 115 (src line 900)
 
 
 state 146
 	augassign:  ATEQ.    (116)
 
-	.  reduce 116 (src line 901)
+	.  reduce 116 (src line 904)
 
 
 state 147
@@ -2098,7 +2098,7 @@ state 147
 state 148
 	del_stmt:  DEL exprlist.    (117)
 
-	.  reduce 117 (src line 907)
+	.  reduce 117 (src line 910)
 
 
 state 149
@@ -2106,13 +2106,13 @@ state 149
 	global_stmt:  GLOBAL names.    (158)
 
 	','  shift 266
-	.  reduce 158 (src line 1121)
+	.  reduce 158 (src line 1124)
 
 
 state 150
 	names:  NAME.    (156)
 
-	.  reduce 156 (src line 1110)
+	.  reduce 156 (src line 1113)
 
 
 state 151
@@ -2120,7 +2120,7 @@ state 151
 	nonlocal_stmt:  NONLOCAL names.    (159)
 
 	','  shift 266
-	.  reduce 159 (src line 1127)
+	.  reduce 159 (src line 1130)
 
 
 state 152
@@ -2128,7 +2128,7 @@ state 152
 	assert_stmt:  ASSERT test.',' test 
 
 	','  shift 267
-	.  reduce 162 (src line 1144)
+	.  reduce 162 (src line 1147)
 
 
 state 153
@@ -2145,7 +2145,7 @@ state 153
 state 154
 	dotted_name:  NAME.    (154)
 
-	.  reduce 154 (src line 1100)
+	.  reduce 154 (src line 1103)
 
 
 state 155
@@ -2169,7 +2169,7 @@ state 155
 	'~'  shift 81
 	'['  shift 87
 	'{'  shift 88
-	.  reduce 100 (src line 830)
+	.  reduce 100 (src line 833)
 
 	strings  goto 91
 	expr  goto 72
@@ -2194,13 +2194,13 @@ state 155
 state 156
 	testlist_star_expr:  test_or_star_exprs optional_comma.    (101)
 
-	.  reduce 101 (src line 835)
+	.  reduce 101 (src line 838)
 
 
 state 157
 	return_stmt:  RETURN testlist.    (127)
 
-	.  reduce 127 (src line 959)
+	.  reduce 127 (src line 962)
 
 
 state 158
@@ -2208,7 +2208,7 @@ state 158
 	raise_stmt:  RAISE test.FROM test 
 
 	FROM  shift 271
-	.  reduce 130 (src line 975)
+	.  reduce 130 (src line 978)
 
 
 state 159
@@ -2216,13 +2216,13 @@ state 159
 	dotted_as_names:  dotted_as_names.',' dotted_as_name 
 
 	','  shift 272
-	.  reduce 134 (src line 994)
+	.  reduce 134 (src line 997)
 
 
 state 160
 	dotted_as_names:  dotted_as_name.    (152)
 
-	.  reduce 152 (src line 1089)
+	.  reduce 152 (src line 1092)
 
 
 state 161
@@ -2232,7 +2232,7 @@ state 161
 
 	AS  shift 273
 	'.'  shift 269
-	.  reduce 148 (src line 1068)
+	.  reduce 148 (src line 1071)
 
 
 state 162
@@ -2247,7 +2247,7 @@ state 163
 	dotted_name:  dotted_name.'.' NAME 
 
 	'.'  shift 269
-	.  reduce 139 (src line 1021)
+	.  reduce 139 (src line 1024)
 
 
 state 164
@@ -2258,7 +2258,7 @@ state 164
 	NAME  shift 154
 	ELIPSIS  shift 167
 	'.'  shift 166
-	.  reduce 141 (src line 1032)
+	.  reduce 141 (src line 1035)
 
 	dot  goto 275
 	dotted_name  goto 276
@@ -2266,19 +2266,19 @@ state 164
 state 165
 	dots:  dot.    (137)
 
-	.  reduce 137 (src line 1011)
+	.  reduce 137 (src line 1014)
 
 
 state 166
 	dot:  '.'.    (135)
 
-	.  reduce 135 (src line 1001)
+	.  reduce 135 (src line 1004)
 
 
 state 167
 	dot:  ELIPSIS.    (136)
 
-	.  reduce 136 (src line 1006)
+	.  reduce 136 (src line 1009)
 
 
 state 168
@@ -2323,7 +2323,7 @@ state 168
 state 169
 	yield_expr:  YIELD testlist_star_expr.    (330)
 
-	.  reduce 330 (src line 2160)
+	.  reduce 330 (src line 2163)
 
 
 state 170
@@ -2402,7 +2402,7 @@ state 172
 	expr:  expr.'|' xor_expr 
 
 	'|'  shift 196
-	.  reduce 229 (src line 1536)
+	.  reduce 229 (src line 1539)
 
 
 state 173
@@ -2449,7 +2449,7 @@ state 174
 state 175
 	optional_varargslist:  varargslist.    (68)
 
-	.  reduce 68 (src line 662)
+	.  reduce 68 (src line 665)
 
 
 state 176
@@ -2461,26 +2461,26 @@ state 176
 	optional_comma: .    (99)
 
 	','  shift 282
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 283
 
 state 177
 	varargslist:  vararglist_no_posonly.    (66)
 
-	.  reduce 66 (src line 653)
+	.  reduce 66 (src line 656)
 
 
 state 178
 	vfpdeftests1:  vfpdeftest.    (52)
 
-	.  reduce 52 (src line 569)
+	.  reduce 52 (src line 572)
 
 
 state 179
 	vararglist_no_posonly:  vf_args_kwonly_kwargs.    (63)
 
-	.  reduce 63 (src line 636)
+	.  reduce 63 (src line 639)
 
 
 state 180
@@ -2488,7 +2488,7 @@ state 180
 	vfpdeftest:  vfpdef.'=' test 
 
 	'='  shift 284
-	.  reduce 50 (src line 557)
+	.  reduce 50 (src line 560)
 
 
 state 181
@@ -2499,7 +2499,7 @@ state 181
 	optional_vfpdef: .    (54)
 
 	NAME  shift 183
-	.  reduce 54 (src line 587)
+	.  reduce 54 (src line 590)
 
 	vfpdef  goto 286
 	optional_vfpdef  goto 285
@@ -2515,13 +2515,13 @@ state 182
 state 183
 	vfpdef:  NAME.    (69)
 
-	.  reduce 69 (src line 667)
+	.  reduce 69 (src line 670)
 
 
 state 184
 	not_test:  NOT not_test.    (214)
 
-	.  reduce 214 (src line 1460)
+	.  reduce 214 (src line 1463)
 
 
 state 185
@@ -2558,49 +2558,49 @@ state 185
 state 186
 	comp_op:  '<'.    (218)
 
-	.  reduce 218 (src line 1490)
+	.  reduce 218 (src line 1493)
 
 
 state 187
 	comp_op:  '>'.    (219)
 
-	.  reduce 219 (src line 1495)
+	.  reduce 219 (src line 1498)
 
 
 state 188
 	comp_op:  EQEQ.    (220)
 
-	.  reduce 220 (src line 1499)
+	.  reduce 220 (src line 1502)
 
 
 state 189
 	comp_op:  GTEQ.    (221)
 
-	.  reduce 221 (src line 1503)
+	.  reduce 221 (src line 1506)
 
 
 state 190
 	comp_op:  LTEQ.    (222)
 
-	.  reduce 222 (src line 1507)
+	.  reduce 222 (src line 1510)
 
 
 state 191
 	comp_op:  LTGT.    (223)
 
-	.  reduce 223 (src line 1511)
+	.  reduce 223 (src line 1514)
 
 
 state 192
 	comp_op:  PLINGEQ.    (224)
 
-	.  reduce 224 (src line 1515)
+	.  reduce 224 (src line 1518)
 
 
 state 193
 	comp_op:  IN.    (225)
 
-	.  reduce 225 (src line 1519)
+	.  reduce 225 (src line 1522)
 
 
 state 194
@@ -2615,7 +2615,7 @@ state 195
 	comp_op:  IS.NOT 
 
 	NOT  shift 290
-	.  reduce 227 (src line 1527)
+	.  reduce 227 (src line 1530)
 
 
 state 196
@@ -2939,19 +2939,19 @@ state 207
 state 208
 	factor:  '+' factor.    (249)
 
-	.  reduce 249 (src line 1632)
+	.  reduce 249 (src line 1635)
 
 
 state 209
 	factor:  '-' factor.    (250)
 
-	.  reduce 250 (src line 1637)
+	.  reduce 250 (src line 1640)
 
 
 state 210
 	factor:  '~' factor.    (251)
 
-	.  reduce 251 (src line 1641)
+	.  reduce 251 (src line 1644)
 
 
 state 211
@@ -2986,7 +2986,7 @@ state 212
 	'('  shift 305
 	'.'  shift 307
 	'['  shift 306
-	.  reduce 255 (src line 1660)
+	.  reduce 255 (src line 1663)
 
 	trailer  goto 304
 
@@ -2994,14 +2994,14 @@ state 213
 	atom_expr:  AWAIT atom.trailers 
 	trailers: .    (257)
 
-	.  reduce 257 (src line 1671)
+	.  reduce 257 (src line 1674)
 
 	trailers  goto 308
 
 state 214
 	atom:  '(' ')'.    (261)
 
-	.  reduce 261 (src line 1705)
+	.  reduce 261 (src line 1708)
 
 
 state 215
@@ -3017,7 +3017,7 @@ state 216
 
 	ASYNC  shift 312
 	FOR  shift 311
-	.  reduce 279 (src line 1788)
+	.  reduce 279 (src line 1791)
 
 	comp_for  goto 310
 
@@ -3027,26 +3027,26 @@ state 217
 	optional_comma: .    (99)
 
 	','  shift 314
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 313
 
 state 218
 	namedexpr_test_or_star_expr:  namedexpr_test.    (277)
 
-	.  reduce 277 (src line 1778)
+	.  reduce 277 (src line 1781)
 
 
 state 219
 	namedexpr_test_or_star_expr:  star_expr.    (278)
 
-	.  reduce 278 (src line 1783)
+	.  reduce 278 (src line 1786)
 
 
 state 220
 	atom:  '[' ']'.    (265)
 
-	.  reduce 265 (src line 1722)
+	.  reduce 265 (src line 1725)
 
 
 state 221
@@ -3055,7 +3055,7 @@ state 221
 
 	ASYNC  shift 312
 	FOR  shift 311
-	.  reduce 279 (src line 1788)
+	.  reduce 279 (src line 1791)
 
 	comp_for  goto 315
 
@@ -3065,14 +3065,14 @@ state 222
 	optional_comma: .    (99)
 
 	','  shift 314
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 316
 
 state 223
 	atom:  '{' '}'.    (268)
 
-	.  reduce 268 (src line 1734)
+	.  reduce 268 (src line 1737)
 
 
 state 224
@@ -3089,7 +3089,7 @@ state 225
 	optional_comma: .    (99)
 
 	','  shift 318
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 319
 
@@ -3099,7 +3099,7 @@ state 226
 	dictorsetmaker:  test.':' test comp_for 
 
 	':'  shift 320
-	.  reduce 97 (src line 816)
+	.  reduce 97 (src line 819)
 
 
 state 227
@@ -3108,7 +3108,7 @@ state 227
 
 	ASYNC  shift 312
 	FOR  shift 311
-	.  reduce 305 (src line 1949)
+	.  reduce 305 (src line 1952)
 
 	comp_for  goto 321
 
@@ -3118,7 +3118,7 @@ state 228
 	optional_comma: .    (99)
 
 	','  shift 155
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 322
 
@@ -3128,7 +3128,7 @@ state 229
 
 	ASYNC  shift 312
 	FOR  shift 311
-	.  reduce 95 (src line 805)
+	.  reduce 95 (src line 808)
 
 	comp_for  goto 323
 
@@ -3166,7 +3166,7 @@ state 230
 state 231
 	strings:  strings STRING.    (260)
 
-	.  reduce 260 (src line 1685)
+	.  reduce 260 (src line 1688)
 
 
 state 232
@@ -3190,13 +3190,13 @@ state 234
 state 235
 	stmt:  simple_stmt.    (70)
 
-	.  reduce 70 (src line 673)
+	.  reduce 70 (src line 676)
 
 
 state 236
 	stmt:  compound_stmt.    (71)
 
-	.  reduce 71 (src line 678)
+	.  reduce 71 (src line 681)
 
 
 state 237
@@ -3228,7 +3228,7 @@ state 238
 	'~'  shift 81
 	'['  shift 87
 	'{'  shift 88
-	.  reduce 100 (src line 830)
+	.  reduce 100 (src line 833)
 
 	strings  goto 91
 	expr  goto 72
@@ -3251,19 +3251,19 @@ state 238
 state 239
 	testlist:  tests optional_comma.    (303)
 
-	.  reduce 303 (src line 1931)
+	.  reduce 303 (src line 1934)
 
 
 state 240
 	small_stmts:  small_stmts ';' small_stmt.    (75)
 
-	.  reduce 75 (src line 691)
+	.  reduce 75 (src line 694)
 
 
 state 241
 	simple_stmt:  small_stmts optional_semicolon NEWLINE.    (76)
 
-	.  reduce 76 (src line 696)
+	.  reduce 76 (src line 699)
 
 
 state 242
@@ -3519,7 +3519,7 @@ state 246
 	'~'  shift 81
 	'['  shift 87
 	'{'  shift 88
-	.  reduce 100 (src line 830)
+	.  reduce 100 (src line 833)
 
 	strings  goto 91
 	expr_or_star_expr  goto 332
@@ -3538,7 +3538,7 @@ state 246
 state 247
 	exprlist:  expr_or_star_exprs optional_comma.    (302)
 
-	.  reduce 302 (src line 1924)
+	.  reduce 302 (src line 1927)
 
 
 state 248
@@ -3548,14 +3548,14 @@ state 248
 	try_stmt:  TRY ':' suite.except_clauses ELSE ':' suite FINALLY ':' suite 
 	except_clauses: .    (183)
 
-	.  reduce 183 (src line 1281)
+	.  reduce 183 (src line 1284)
 
 	except_clauses  goto 333
 
 state 249
 	suite:  simple_stmt.    (199)
 
-	.  reduce 199 (src line 1367)
+	.  reduce 199 (src line 1370)
 
 
 state 250
@@ -3718,7 +3718,7 @@ state 254
 	optional_return_type: .    (25)
 
 	MINUSGT  shift 339
-	.  reduce 25 (src line 417)
+	.  reduce 25 (src line 420)
 
 	optional_return_type  goto 338
 
@@ -3729,7 +3729,7 @@ state 255
 	NAME  shift 349
 	STARSTAR  shift 348
 	'*'  shift 347
-	.  reduce 29 (src line 438)
+	.  reduce 29 (src line 441)
 
 	tfpdeftest  goto 344
 	tfpdef  goto 346
@@ -3796,19 +3796,19 @@ state 257
 state 258
 	expr_stmt:  testlist_star_expr augassign yield_expr_or_testlist.    (86)
 
-	.  reduce 86 (src line 754)
+	.  reduce 86 (src line 757)
 
 
 state 259
 	yield_expr_or_testlist:  yield_expr.    (89)
 
-	.  reduce 89 (src line 774)
+	.  reduce 89 (src line 777)
 
 
 state 260
 	yield_expr_or_testlist:  testlist.    (90)
 
-	.  reduce 90 (src line 779)
+	.  reduce 90 (src line 782)
 
 
 state 261
@@ -3863,25 +3863,25 @@ state 262
 	annassign:  ':' test.    (103)
 
 	'='  shift 358
-	.  reduce 103 (src line 847)
+	.  reduce 103 (src line 850)
 
 
 state 263
 	equals_yield_expr_or_testlist_star_expr:  '=' yield_expr_or_testlist_star_expr.    (93)
 
-	.  reduce 93 (src line 794)
+	.  reduce 93 (src line 797)
 
 
 state 264
 	yield_expr_or_testlist_star_expr:  yield_expr.    (91)
 
-	.  reduce 91 (src line 784)
+	.  reduce 91 (src line 787)
 
 
 state 265
 	yield_expr_or_testlist_star_expr:  testlist_star_expr.    (92)
 
-	.  reduce 92 (src line 789)
+	.  reduce 92 (src line 792)
 
 
 state 266
@@ -3947,7 +3947,7 @@ state 269
 state 270
 	test_or_star_exprs:  test_or_star_exprs ',' test_or_star_expr.    (96)
 
-	.  reduce 96 (src line 811)
+	.  reduce 96 (src line 814)
 
 
 state 271
@@ -4020,7 +4020,7 @@ state 274
 state 275
 	dots:  dots dot.    (138)
 
-	.  reduce 138 (src line 1016)
+	.  reduce 138 (src line 1019)
 
 
 state 276
@@ -4028,13 +4028,13 @@ state 276
 	dotted_name:  dotted_name.'.' NAME 
 
 	'.'  shift 269
-	.  reduce 140 (src line 1027)
+	.  reduce 140 (src line 1030)
 
 
 state 277
 	yield_expr:  YIELD FROM test.    (329)
 
-	.  reduce 329 (src line 2156)
+	.  reduce 329 (src line 2159)
 
 
 state 278
@@ -4051,13 +4051,13 @@ state 279
 	and_test:  and_test.AND not_test 
 
 	AND  shift 173
-	.  reduce 211 (src line 1432)
+	.  reduce 211 (src line 1435)
 
 
 state 280
 	and_test:  and_test AND not_test.    (213)
 
-	.  reduce 213 (src line 1449)
+	.  reduce 213 (src line 1452)
 
 
 state 281
@@ -4110,7 +4110,7 @@ state 282
 	STARSTAR  shift 182
 	'*'  shift 181
 	'/'  shift 376
-	.  reduce 100 (src line 830)
+	.  reduce 100 (src line 833)
 
 	vfpdeftest  goto 374
 	vfpdef  goto 180
@@ -4119,7 +4119,7 @@ state 282
 state 283
 	vararglist_no_posonly:  vfpdeftests1 optional_comma.    (61)
 
-	.  reduce 61 (src line 624)
+	.  reduce 61 (src line 627)
 
 
 state 284
@@ -4169,14 +4169,14 @@ state 285
 	optional_comma: .    (99)
 
 	','  shift 378
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 379
 
 state 286
 	optional_vfpdef:  vfpdef.    (55)
 
-	.  reduce 55 (src line 591)
+	.  reduce 55 (src line 594)
 
 
 state 287
@@ -4184,7 +4184,7 @@ state 287
 	optional_comma: .    (99)
 
 	','  shift 381
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 380
 
@@ -4193,19 +4193,19 @@ state 288
 	expr:  expr.'|' xor_expr 
 
 	'|'  shift 196
-	.  reduce 217 (src line 1476)
+	.  reduce 217 (src line 1479)
 
 
 state 289
 	comp_op:  NOT IN.    (226)
 
-	.  reduce 226 (src line 1523)
+	.  reduce 226 (src line 1526)
 
 
 state 290
 	comp_op:  IS NOT.    (228)
 
-	.  reduce 228 (src line 1531)
+	.  reduce 228 (src line 1534)
 
 
 state 291
@@ -4213,7 +4213,7 @@ state 291
 	xor_expr:  xor_expr.'^' and_expr 
 
 	'^'  shift 197
-	.  reduce 232 (src line 1553)
+	.  reduce 232 (src line 1556)
 
 
 state 292
@@ -4221,7 +4221,7 @@ state 292
 	and_expr:  and_expr.'&' shift_expr 
 
 	'&'  shift 198
-	.  reduce 234 (src line 1563)
+	.  reduce 234 (src line 1566)
 
 
 state 293
@@ -4231,7 +4231,7 @@ state 293
 
 	LTLT  shift 199
 	GTGT  shift 200
-	.  reduce 236 (src line 1573)
+	.  reduce 236 (src line 1576)
 
 
 state 294
@@ -4241,7 +4241,7 @@ state 294
 
 	'+'  shift 201
 	'-'  shift 202
-	.  reduce 238 (src line 1583)
+	.  reduce 238 (src line 1586)
 
 
 state 295
@@ -4251,7 +4251,7 @@ state 295
 
 	'+'  shift 201
 	'-'  shift 202
-	.  reduce 239 (src line 1587)
+	.  reduce 239 (src line 1590)
 
 
 state 296
@@ -4267,7 +4267,7 @@ state 296
 	'*'  shift 203
 	'/'  shift 205
 	'%'  shift 206
-	.  reduce 241 (src line 1597)
+	.  reduce 241 (src line 1600)
 
 
 state 297
@@ -4283,49 +4283,49 @@ state 297
 	'*'  shift 203
 	'/'  shift 205
 	'%'  shift 206
-	.  reduce 242 (src line 1601)
+	.  reduce 242 (src line 1604)
 
 
 state 298
 	term:  term '*' factor.    (244)
 
-	.  reduce 244 (src line 1611)
+	.  reduce 244 (src line 1614)
 
 
 state 299
 	term:  term '@' factor.    (245)
 
-	.  reduce 245 (src line 1615)
+	.  reduce 245 (src line 1618)
 
 
 state 300
 	term:  term '/' factor.    (246)
 
-	.  reduce 246 (src line 1619)
+	.  reduce 246 (src line 1622)
 
 
 state 301
 	term:  term '%' factor.    (247)
 
-	.  reduce 247 (src line 1623)
+	.  reduce 247 (src line 1626)
 
 
 state 302
 	term:  term DIVDIV factor.    (248)
 
-	.  reduce 248 (src line 1627)
+	.  reduce 248 (src line 1630)
 
 
 state 303
 	power:  atom_expr STARSTAR factor.    (254)
 
-	.  reduce 254 (src line 1655)
+	.  reduce 254 (src line 1658)
 
 
 state 304
 	trailers:  trailers trailer.    (258)
 
-	.  reduce 258 (src line 1675)
+	.  reduce 258 (src line 1678)
 
 
 state 305
@@ -4432,14 +4432,14 @@ state 308
 	'('  shift 305
 	'.'  shift 307
 	'['  shift 306
-	.  reduce 256 (src line 1665)
+	.  reduce 256 (src line 1668)
 
 	trailer  goto 304
 
 state 309
 	atom:  '(' yield_expr ')'.    (262)
 
-	.  reduce 262 (src line 1710)
+	.  reduce 262 (src line 1713)
 
 
 state 310
@@ -4523,7 +4523,7 @@ state 314
 	'~'  shift 81
 	'['  shift 87
 	'{'  shift 88
-	.  reduce 100 (src line 830)
+	.  reduce 100 (src line 833)
 
 	strings  goto 91
 	expr  goto 72
@@ -4563,7 +4563,7 @@ state 316
 state 317
 	atom:  '{' dictorsetmaker '}'.    (269)
 
-	.  reduce 269 (src line 1738)
+	.  reduce 269 (src line 1741)
 
 
 state 318
@@ -4588,7 +4588,7 @@ state 318
 	'~'  shift 81
 	'['  shift 87
 	'{'  shift 88
-	.  reduce 100 (src line 830)
+	.  reduce 100 (src line 833)
 
 	strings  goto 91
 	expr  goto 72
@@ -4612,7 +4612,7 @@ state 318
 state 319
 	dictorsetmaker:  test_colon_tests optional_comma.    (308)
 
-	.  reduce 308 (src line 1967)
+	.  reduce 308 (src line 1970)
 
 
 state 320
@@ -4658,19 +4658,19 @@ state 320
 state 321
 	dictorsetmaker:  star_star_expr comp_for.    (310)
 
-	.  reduce 310 (src line 1982)
+	.  reduce 310 (src line 1985)
 
 
 state 322
 	dictorsetmaker:  test_or_star_exprs optional_comma.    (311)
 
-	.  reduce 311 (src line 1986)
+	.  reduce 311 (src line 1989)
 
 
 state 323
 	dictorsetmaker:  test_or_star_expr comp_for.    (312)
 
-	.  reduce 312 (src line 1990)
+	.  reduce 312 (src line 1993)
 
 
 state 324
@@ -4678,7 +4678,7 @@ state 324
 	expr:  expr.'|' xor_expr 
 
 	'|'  shift 196
-	.  reduce 230 (src line 1542)
+	.  reduce 230 (src line 1545)
 
 
 state 325
@@ -4696,21 +4696,21 @@ state 326
 state 327
 	tests:  tests ',' test.    (161)
 
-	.  reduce 161 (src line 1139)
+	.  reduce 161 (src line 1142)
 
 
 state 328
 	if_stmt:  IF namedexpr_test ':' suite.elifs optional_else 
 	elifs: .    (176)
 
-	.  reduce 176 (src line 1220)
+	.  reduce 176 (src line 1223)
 
 	elifs  goto 399
 
 state 329
 	namedexpr_test:  NAME ASSIGN_EQ test.    (201)
 
-	.  reduce 201 (src line 1378)
+	.  reduce 201 (src line 1381)
 
 
 state 330
@@ -4718,7 +4718,7 @@ state 330
 	optional_else: .    (178)
 
 	ELSE  shift 401
-	.  reduce 178 (src line 1237)
+	.  reduce 178 (src line 1240)
 
 	optional_else  goto 400
 
@@ -4732,7 +4732,7 @@ state 331
 state 332
 	expr_or_star_exprs:  expr_or_star_exprs ',' expr_or_star_expr.    (301)
 
-	.  reduce 301 (src line 1919)
+	.  reduce 301 (src line 1922)
 
 
 state 333
@@ -4745,7 +4745,7 @@ state 333
 	ELSE  shift 404
 	EXCEPT  shift 406
 	FINALLY  shift 405
-	.  reduce 185 (src line 1291)
+	.  reduce 185 (src line 1294)
 
 	except_clause  goto 403
 
@@ -4851,13 +4851,13 @@ state 334
 state 335
 	with_items:  with_items ',' with_item.    (190)
 
-	.  reduce 190 (src line 1315)
+	.  reduce 190 (src line 1318)
 
 
 state 336
 	with_stmt:  WITH with_items ':' suite.    (191)
 
-	.  reduce 191 (src line 1320)
+	.  reduce 191 (src line 1323)
 
 
 state 337
@@ -4865,7 +4865,7 @@ state 337
 	expr:  expr.'|' xor_expr 
 
 	'|'  shift 196
-	.  reduce 193 (src line 1331)
+	.  reduce 193 (src line 1334)
 
 
 state 338
@@ -4924,7 +4924,7 @@ state 340
 state 341
 	optional_typedargslist:  typedargslist.    (30)
 
-	.  reduce 30 (src line 442)
+	.  reduce 30 (src line 445)
 
 
 state 342
@@ -4936,26 +4936,26 @@ state 342
 	optional_comma: .    (99)
 
 	','  shift 412
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 413
 
 state 343
 	typedargslist:  typedargslist_no_posonly.    (47)
 
-	.  reduce 47 (src line 542)
+	.  reduce 47 (src line 545)
 
 
 state 344
 	tfpdeftests1:  tfpdeftest.    (33)
 
-	.  reduce 33 (src line 460)
+	.  reduce 33 (src line 463)
 
 
 state 345
 	typedargslist_no_posonly:  tf_args_kwonly_kwargs.    (43)
 
-	.  reduce 43 (src line 520)
+	.  reduce 43 (src line 523)
 
 
 state 346
@@ -4963,7 +4963,7 @@ state 346
 	tfpdeftest:  tfpdef.'=' test 
 
 	'='  shift 414
-	.  reduce 31 (src line 448)
+	.  reduce 31 (src line 451)
 
 
 state 347
@@ -4974,7 +4974,7 @@ state 347
 	optional_tfpdef: .    (35)
 
 	NAME  shift 349
-	.  reduce 35 (src line 478)
+	.  reduce 35 (src line 481)
 
 	tfpdef  goto 416
 	optional_tfpdef  goto 415
@@ -4992,7 +4992,7 @@ state 349
 	tfpdef:  NAME.':' test 
 
 	':'  shift 418
-	.  reduce 48 (src line 547)
+	.  reduce 48 (src line 550)
 
 
 state 350
@@ -5085,20 +5085,20 @@ state 352
 	optional_comma: .    (99)
 
 	','  shift 422
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 421
 
 state 353
 	arglist:  argument.    (314)
 
-	.  reduce 314 (src line 2007)
+	.  reduce 314 (src line 2010)
 
 
 state 354
 	argument:  test_or_star_expr.    (316)
 
-	.  reduce 316 (src line 2055)
+	.  reduce 316 (src line 2058)
 
 
 state 355
@@ -5111,7 +5111,7 @@ state 355
 	ASYNC  shift 312
 	FOR  shift 311
 	'='  shift 425
-	.  reduce 97 (src line 816)
+	.  reduce 97 (src line 819)
 
 	comp_for  goto 423
 
@@ -5157,7 +5157,7 @@ state 356
 state 357
 	equals_yield_expr_or_testlist_star_expr:  equals_yield_expr_or_testlist_star_expr '=' yield_expr_or_testlist_star_expr.    (94)
 
-	.  reduce 94 (src line 800)
+	.  reduce 94 (src line 803)
 
 
 state 358
@@ -5210,13 +5210,13 @@ state 358
 state 359
 	names:  names ',' NAME.    (157)
 
-	.  reduce 157 (src line 1116)
+	.  reduce 157 (src line 1119)
 
 
 state 360
 	assert_stmt:  ASSERT test ',' test.    (163)
 
-	.  reduce 163 (src line 1149)
+	.  reduce 163 (src line 1152)
 
 
 state 361
@@ -5228,37 +5228,37 @@ state 361
 state 362
 	dotted_name:  dotted_name '.' NAME.    (155)
 
-	.  reduce 155 (src line 1105)
+	.  reduce 155 (src line 1108)
 
 
 state 363
 	raise_stmt:  RAISE test FROM test.    (131)
 
-	.  reduce 131 (src line 979)
+	.  reduce 131 (src line 982)
 
 
 state 364
 	dotted_as_names:  dotted_as_names ',' dotted_as_name.    (153)
 
-	.  reduce 153 (src line 1095)
+	.  reduce 153 (src line 1098)
 
 
 state 365
 	dotted_as_name:  dotted_name AS NAME.    (149)
 
-	.  reduce 149 (src line 1073)
+	.  reduce 149 (src line 1076)
 
 
 state 366
 	import_from:  FROM from_arg IMPORT import_from_arg.    (145)
 
-	.  reduce 145 (src line 1052)
+	.  reduce 145 (src line 1055)
 
 
 state 367
 	import_from_arg:  '*'.    (142)
 
-	.  reduce 142 (src line 1038)
+	.  reduce 142 (src line 1041)
 
 
 state 368
@@ -5276,14 +5276,14 @@ state 369
 	optional_comma: .    (99)
 
 	','  shift 430
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 429
 
 state 370
 	import_as_names:  import_as_name.    (150)
 
-	.  reduce 150 (src line 1078)
+	.  reduce 150 (src line 1081)
 
 
 state 371
@@ -5291,7 +5291,7 @@ state 371
 	import_as_name:  NAME.AS NAME 
 
 	AS  shift 431
-	.  reduce 146 (src line 1058)
+	.  reduce 146 (src line 1061)
 
 
 state 372
@@ -5336,19 +5336,19 @@ state 372
 state 373
 	lambdef:  LAMBDA optional_varargslist ':' test.    (208)
 
-	.  reduce 208 (src line 1414)
+	.  reduce 208 (src line 1417)
 
 
 state 374
 	vfpdeftests1:  vfpdeftests1 ',' vfpdeftest.    (53)
 
-	.  reduce 53 (src line 579)
+	.  reduce 53 (src line 582)
 
 
 state 375
 	vararglist_no_posonly:  vfpdeftests1 ',' vf_args_kwonly_kwargs.    (62)
 
-	.  reduce 62 (src line 629)
+	.  reduce 62 (src line 632)
 
 
 state 376
@@ -5357,14 +5357,14 @@ state 376
 	optional_comma: .    (99)
 
 	','  shift 433
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 434
 
 state 377
 	vfpdeftest:  vfpdef '=' test.    (51)
 
-	.  reduce 51 (src line 563)
+	.  reduce 51 (src line 566)
 
 
 state 378
@@ -5375,7 +5375,7 @@ state 378
 
 	NAME  shift 183
 	STARSTAR  shift 436
-	.  reduce 100 (src line 830)
+	.  reduce 100 (src line 833)
 
 	vfpdeftest  goto 178
 	vfpdef  goto 180
@@ -5384,19 +5384,19 @@ state 378
 state 379
 	vf_args_kwonly_kwargs:  '*' optional_vfpdef optional_comma.    (59)
 
-	.  reduce 59 (src line 613)
+	.  reduce 59 (src line 616)
 
 
 state 380
 	vf_args_kwonly_kwargs:  STARSTAR vfpdef optional_comma.    (60)
 
-	.  reduce 60 (src line 617)
+	.  reduce 60 (src line 620)
 
 
 state 381
 	optional_comma:  ','.    (100)
 
-	.  reduce 100 (src line 830)
+	.  reduce 100 (src line 833)
 
 
 state 382
@@ -5419,14 +5419,14 @@ state 384
 	optional_comma: .    (99)
 
 	','  shift 439
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 440
 
 state 385
 	subscripts:  subscript.    (284)
 
-	.  reduce 284 (src line 1828)
+	.  reduce 284 (src line 1831)
 
 
 state 386
@@ -5437,7 +5437,7 @@ state 386
 	subscript:  test.':' test sliceop 
 
 	':'  shift 441
-	.  reduce 287 (src line 1855)
+	.  reduce 287 (src line 1858)
 
 
 state 387
@@ -5463,7 +5463,7 @@ state 387
 	'~'  shift 81
 	'['  shift 87
 	'{'  shift 88
-	.  reduce 288 (src line 1860)
+	.  reduce 288 (src line 1863)
 
 	strings  goto 91
 	expr  goto 72
@@ -5487,13 +5487,13 @@ state 387
 state 388
 	trailer:  '.' NAME.    (283)
 
-	.  reduce 283 (src line 1823)
+	.  reduce 283 (src line 1826)
 
 
 state 389
 	atom:  '(' namedexpr_test_or_star_expr comp_for ')'.    (263)
 
-	.  reduce 263 (src line 1714)
+	.  reduce 263 (src line 1717)
 
 
 state 390
@@ -5507,31 +5507,31 @@ state 390
 state 391
 	comp_for:  ASYNC comp_for.    (325)
 
-	.  reduce 325 (src line 2129)
+	.  reduce 325 (src line 2132)
 
 
 state 392
 	atom:  '(' namedexpr_tests_or_star_exprs optional_comma ')'.    (264)
 
-	.  reduce 264 (src line 1718)
+	.  reduce 264 (src line 1721)
 
 
 state 393
 	namedexpr_tests_or_star_exprs:  namedexpr_tests_or_star_exprs ',' namedexpr_test_or_star_expr.    (280)
 
-	.  reduce 280 (src line 1794)
+	.  reduce 280 (src line 1797)
 
 
 state 394
 	atom:  '[' namedexpr_test_or_star_expr comp_for ']'.    (266)
 
-	.  reduce 266 (src line 1726)
+	.  reduce 266 (src line 1729)
 
 
 state 395
 	atom:  '[' namedexpr_tests_or_star_exprs optional_comma ']'.    (267)
 
-	.  reduce 267 (src line 1730)
+	.  reduce 267 (src line 1733)
 
 
 state 396
@@ -5544,7 +5544,7 @@ state 396
 state 397
 	test_colon_tests:  test_colon_tests ',' star_star_expr.    (307)
 
-	.  reduce 307 (src line 1958)
+	.  reduce 307 (src line 1961)
 
 
 state 398
@@ -5553,7 +5553,7 @@ state 398
 
 	ASYNC  shift 312
 	FOR  shift 311
-	.  reduce 304 (src line 1943)
+	.  reduce 304 (src line 1946)
 
 	comp_for  goto 447
 
@@ -5564,14 +5564,14 @@ state 399
 
 	ELIF  shift 448
 	ELSE  shift 401
-	.  reduce 178 (src line 1237)
+	.  reduce 178 (src line 1240)
 
 	optional_else  goto 449
 
 state 400
 	while_stmt:  WHILE namedexpr_test ':' suite optional_else.    (181)
 
-	.  reduce 181 (src line 1267)
+	.  reduce 181 (src line 1270)
 
 
 state 401
@@ -5701,7 +5701,7 @@ state 406
 	'~'  shift 81
 	'['  shift 87
 	'{'  shift 88
-	.  reduce 194 (src line 1339)
+	.  reduce 194 (src line 1342)
 
 	strings  goto 91
 	expr  goto 72
@@ -5824,7 +5824,7 @@ state 407
 state 408
 	stmts:  stmt.    (197)
 
-	.  reduce 197 (src line 1356)
+	.  reduce 197 (src line 1359)
 
 
 state 409
@@ -5907,13 +5907,13 @@ state 409
 state 410
 	optional_return_type:  MINUSGT test.    (26)
 
-	.  reduce 26 (src line 421)
+	.  reduce 26 (src line 424)
 
 
 state 411
 	parameters:  '(' optional_typedargslist ')'.    (28)
 
-	.  reduce 28 (src line 432)
+	.  reduce 28 (src line 435)
 
 
 state 412
@@ -5927,7 +5927,7 @@ state 412
 	STARSTAR  shift 348
 	'*'  shift 347
 	'/'  shift 461
-	.  reduce 100 (src line 830)
+	.  reduce 100 (src line 833)
 
 	tfpdeftest  goto 459
 	tfpdef  goto 346
@@ -5936,7 +5936,7 @@ state 412
 state 413
 	typedargslist_no_posonly:  tfpdeftests1 optional_comma.    (44)
 
-	.  reduce 44 (src line 524)
+	.  reduce 44 (src line 527)
 
 
 state 414
@@ -5986,14 +5986,14 @@ state 415
 	optional_comma: .    (99)
 
 	','  shift 464
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 463
 
 state 416
 	optional_tfpdef:  tfpdef.    (36)
 
-	.  reduce 36 (src line 482)
+	.  reduce 36 (src line 485)
 
 
 state 417
@@ -6001,7 +6001,7 @@ state 417
 	optional_comma: .    (99)
 
 	','  shift 381
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 465
 
@@ -6047,7 +6047,7 @@ state 418
 state 419
 	classdef:  CLASS NAME optional_arglist_call ':' suite.    (313)
 
-	.  reduce 313 (src line 1995)
+	.  reduce 313 (src line 1998)
 
 
 state 420
@@ -6084,7 +6084,7 @@ state 422
 	'~'  shift 81
 	'['  shift 87
 	'{'  shift 88
-	.  reduce 100 (src line 830)
+	.  reduce 100 (src line 833)
 
 	strings  goto 91
 	expr  goto 72
@@ -6110,7 +6110,7 @@ state 422
 state 423
 	argument:  test comp_for.    (317)
 
-	.  reduce 317 (src line 2061)
+	.  reduce 317 (src line 2064)
 
 
 state 424
@@ -6194,13 +6194,13 @@ state 425
 state 426
 	argument:  STARSTAR test.    (320)
 
-	.  reduce 320 (src line 2085)
+	.  reduce 320 (src line 2088)
 
 
 state 427
 	annassign:  ':' test '=' yield_expr_or_testlist_star_expr.    (102)
 
-	.  reduce 102 (src line 842)
+	.  reduce 102 (src line 845)
 
 
 state 428
@@ -6209,14 +6209,14 @@ state 428
 	optional_comma: .    (99)
 
 	','  shift 430
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 470
 
 state 429
 	import_from_arg:  import_as_names optional_comma.    (144)
 
-	.  reduce 144 (src line 1047)
+	.  reduce 144 (src line 1050)
 
 
 state 430
@@ -6224,7 +6224,7 @@ state 430
 	import_as_names:  import_as_names ','.import_as_name 
 
 	NAME  shift 371
-	.  reduce 100 (src line 830)
+	.  reduce 100 (src line 833)
 
 	import_as_name  goto 471
 
@@ -6238,7 +6238,7 @@ state 431
 state 432
 	test:  or_test IF or_test ELSE test.    (204)
 
-	.  reduce 204 (src line 1395)
+	.  reduce 204 (src line 1398)
 
 
 state 433
@@ -6248,7 +6248,7 @@ state 433
 	NAME  shift 183
 	STARSTAR  shift 182
 	'*'  shift 181
-	.  reduce 100 (src line 830)
+	.  reduce 100 (src line 833)
 
 	vfpdeftest  goto 178
 	vfpdef  goto 180
@@ -6259,7 +6259,7 @@ state 433
 state 434
 	varargslist:  vfpdeftests1 ',' '/' optional_comma.    (65)
 
-	.  reduce 65 (src line 649)
+	.  reduce 65 (src line 652)
 
 
 state 435
@@ -6269,7 +6269,7 @@ state 435
 	optional_comma: .    (99)
 
 	','  shift 475
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 476
 
@@ -6284,13 +6284,13 @@ state 436
 state 437
 	trailer:  '(' optional_arglist ')'.    (281)
 
-	.  reduce 281 (src line 1800)
+	.  reduce 281 (src line 1803)
 
 
 state 438
 	trailer:  '[' subscriptlist ']'.    (282)
 
-	.  reduce 282 (src line 1805)
+	.  reduce 282 (src line 1808)
 
 
 state 439
@@ -6314,7 +6314,7 @@ state 439
 	'~'  shift 81
 	'['  shift 87
 	'{'  shift 88
-	.  reduce 100 (src line 830)
+	.  reduce 100 (src line 833)
 
 	strings  goto 91
 	expr  goto 72
@@ -6338,7 +6338,7 @@ state 439
 state 440
 	subscriptlist:  subscripts optional_comma.    (286)
 
-	.  reduce 286 (src line 1845)
+	.  reduce 286 (src line 1848)
 
 
 state 441
@@ -6364,7 +6364,7 @@ state 441
 	'~'  shift 81
 	'['  shift 87
 	'{'  shift 88
-	.  reduce 292 (src line 1876)
+	.  reduce 292 (src line 1879)
 
 	strings  goto 91
 	expr  goto 72
@@ -6388,7 +6388,7 @@ state 441
 state 442
 	subscript:  ':' sliceop.    (289)
 
-	.  reduce 289 (src line 1864)
+	.  reduce 289 (src line 1867)
 
 
 state 443
@@ -6396,7 +6396,7 @@ state 443
 	subscript:  ':' test.sliceop 
 
 	':'  shift 444
-	.  reduce 290 (src line 1868)
+	.  reduce 290 (src line 1871)
 
 	sliceop  goto 481
 
@@ -6420,7 +6420,7 @@ state 444
 	'~'  shift 81
 	'['  shift 87
 	'{'  shift 88
-	.  reduce 296 (src line 1893)
+	.  reduce 296 (src line 1896)
 
 	strings  goto 91
 	expr  goto 72
@@ -6519,7 +6519,7 @@ state 446
 state 447
 	dictorsetmaker:  test ':' test comp_for.    (309)
 
-	.  reduce 309 (src line 1978)
+	.  reduce 309 (src line 1981)
 
 
 state 448
@@ -6564,7 +6564,7 @@ state 448
 state 449
 	if_stmt:  IF namedexpr_test ':' suite elifs optional_else.    (180)
 
-	.  reduce 180 (src line 1246)
+	.  reduce 180 (src line 1249)
 
 
 state 450
@@ -6649,7 +6649,7 @@ state 451
 	optional_else: .    (178)
 
 	ELSE  shift 401
-	.  reduce 178 (src line 1237)
+	.  reduce 178 (src line 1240)
 
 	optional_else  goto 487
 
@@ -6890,37 +6890,37 @@ state 455
 	except_clause:  EXCEPT test.AS NAME 
 
 	AS  shift 491
-	.  reduce 195 (src line 1345)
+	.  reduce 195 (src line 1348)
 
 
 state 456
 	stmts:  stmts stmt.    (198)
 
-	.  reduce 198 (src line 1362)
+	.  reduce 198 (src line 1365)
 
 
 state 457
 	suite:  NEWLINE INDENT stmts DEDENT.    (200)
 
-	.  reduce 200 (src line 1372)
+	.  reduce 200 (src line 1375)
 
 
 state 458
 	funcdef:  DEF NAME parameters optional_return_type ':' suite.    (27)
 
-	.  reduce 27 (src line 426)
+	.  reduce 27 (src line 429)
 
 
 state 459
 	tfpdeftests1:  tfpdeftests1 ',' tfpdeftest.    (34)
 
-	.  reduce 34 (src line 470)
+	.  reduce 34 (src line 473)
 
 
 state 460
 	typedargslist_no_posonly:  tfpdeftests1 ',' tf_args_kwonly_kwargs.    (42)
 
-	.  reduce 42 (src line 512)
+	.  reduce 42 (src line 515)
 
 
 state 461
@@ -6929,20 +6929,20 @@ state 461
 	optional_comma: .    (99)
 
 	','  shift 492
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 493
 
 state 462
 	tfpdeftest:  tfpdef '=' test.    (32)
 
-	.  reduce 32 (src line 454)
+	.  reduce 32 (src line 457)
 
 
 state 463
 	tf_args_kwonly_kwargs:  '*' optional_tfpdef optional_comma.    (37)
 
-	.  reduce 37 (src line 488)
+	.  reduce 37 (src line 491)
 
 
 state 464
@@ -6953,7 +6953,7 @@ state 464
 
 	NAME  shift 349
 	STARSTAR  shift 495
-	.  reduce 100 (src line 830)
+	.  reduce 100 (src line 833)
 
 	tfpdeftest  goto 344
 	tfpdef  goto 346
@@ -6962,31 +6962,31 @@ state 464
 state 465
 	tf_args_kwonly_kwargs:  STARSTAR tfpdef optional_comma.    (41)
 
-	.  reduce 41 (src line 506)
+	.  reduce 41 (src line 509)
 
 
 state 466
 	tfpdef:  NAME ':' test.    (49)
 
-	.  reduce 49 (src line 552)
+	.  reduce 49 (src line 555)
 
 
 state 467
 	arglist:  arglist ',' argument.    (315)
 
-	.  reduce 315 (src line 2012)
+	.  reduce 315 (src line 2015)
 
 
 state 468
 	argument:  test ASSIGN_EQ test.    (318)
 
-	.  reduce 318 (src line 2068)
+	.  reduce 318 (src line 2071)
 
 
 state 469
 	argument:  test '=' test.    (319)
 
-	.  reduce 319 (src line 2075)
+	.  reduce 319 (src line 2078)
 
 
 state 470
@@ -6999,19 +6999,19 @@ state 470
 state 471
 	import_as_names:  import_as_names ',' import_as_name.    (151)
 
-	.  reduce 151 (src line 1084)
+	.  reduce 151 (src line 1087)
 
 
 state 472
 	import_as_name:  NAME AS NAME.    (147)
 
-	.  reduce 147 (src line 1063)
+	.  reduce 147 (src line 1066)
 
 
 state 473
 	varargslist:  vfpdeftests1 ',' '/' ',' vararglist_no_posonly.    (64)
 
-	.  reduce 64 (src line 641)
+	.  reduce 64 (src line 644)
 
 
 state 474
@@ -7021,7 +7021,7 @@ state 474
 	optional_comma: .    (99)
 
 	','  shift 497
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 283
 
@@ -7032,7 +7032,7 @@ state 475
 
 	NAME  shift 183
 	STARSTAR  shift 498
-	.  reduce 100 (src line 830)
+	.  reduce 100 (src line 833)
 
 	vfpdeftest  goto 374
 	vfpdef  goto 180
@@ -7040,7 +7040,7 @@ state 475
 state 476
 	vf_args_kwonly_kwargs:  '*' optional_vfpdef ',' vfpdeftests1 optional_comma.    (56)
 
-	.  reduce 56 (src line 597)
+	.  reduce 56 (src line 600)
 
 
 state 477
@@ -7048,20 +7048,20 @@ state 477
 	optional_comma: .    (99)
 
 	','  shift 381
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 499
 
 state 478
 	subscripts:  subscripts ',' subscript.    (285)
 
-	.  reduce 285 (src line 1834)
+	.  reduce 285 (src line 1837)
 
 
 state 479
 	subscript:  test ':' sliceop.    (293)
 
-	.  reduce 293 (src line 1880)
+	.  reduce 293 (src line 1883)
 
 
 state 480
@@ -7069,20 +7069,20 @@ state 480
 	subscript:  test ':' test.sliceop 
 
 	':'  shift 444
-	.  reduce 294 (src line 1884)
+	.  reduce 294 (src line 1887)
 
 	sliceop  goto 500
 
 state 481
 	subscript:  ':' test sliceop.    (291)
 
-	.  reduce 291 (src line 1872)
+	.  reduce 291 (src line 1875)
 
 
 state 482
 	sliceop:  ':' test.    (297)
 
-	.  reduce 297 (src line 1898)
+	.  reduce 297 (src line 1901)
 
 
 state 483
@@ -7094,7 +7094,7 @@ state 483
 	FOR  shift 311
 	IF  shift 504
 	OR  shift 171
-	.  reduce 323 (src line 2108)
+	.  reduce 323 (src line 2111)
 
 	comp_if  goto 503
 	comp_iter  goto 501
@@ -7103,7 +7103,7 @@ state 483
 state 484
 	test_colon_tests:  test_colon_tests ',' test ':' test.    (306)
 
-	.  reduce 306 (src line 1954)
+	.  reduce 306 (src line 1957)
 
 
 state 485
@@ -7116,19 +7116,19 @@ state 485
 state 486
 	optional_else:  ELSE ':' suite.    (179)
 
-	.  reduce 179 (src line 1241)
+	.  reduce 179 (src line 1244)
 
 
 state 487
 	for_stmt:  FOR exprlist IN testlist ':' suite optional_else.    (182)
 
-	.  reduce 182 (src line 1273)
+	.  reduce 182 (src line 1276)
 
 
 state 488
 	except_clauses:  except_clauses except_clause ':' suite.    (184)
 
-	.  reduce 184 (src line 1285)
+	.  reduce 184 (src line 1288)
 
 
 state 489
@@ -7136,13 +7136,13 @@ state 489
 	try_stmt:  TRY ':' suite except_clauses ELSE ':' suite.FINALLY ':' suite 
 
 	FINALLY  shift 506
-	.  reduce 186 (src line 1296)
+	.  reduce 186 (src line 1299)
 
 
 state 490
 	try_stmt:  TRY ':' suite except_clauses FINALLY ':' suite.    (187)
 
-	.  reduce 187 (src line 1300)
+	.  reduce 187 (src line 1303)
 
 
 state 491
@@ -7159,7 +7159,7 @@ state 492
 	NAME  shift 349
 	STARSTAR  shift 348
 	'*'  shift 347
-	.  reduce 100 (src line 830)
+	.  reduce 100 (src line 833)
 
 	tfpdeftest  goto 344
 	tfpdef  goto 346
@@ -7170,7 +7170,7 @@ state 492
 state 493
 	typedargslist:  tfpdeftests1 ',' '/' optional_comma.    (46)
 
-	.  reduce 46 (src line 538)
+	.  reduce 46 (src line 541)
 
 
 state 494
@@ -7180,7 +7180,7 @@ state 494
 	optional_comma: .    (99)
 
 	','  shift 510
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 511
 
@@ -7195,7 +7195,7 @@ state 495
 state 496
 	import_from_arg:  '(' import_as_names optional_comma ')'.    (143)
 
-	.  reduce 143 (src line 1043)
+	.  reduce 143 (src line 1046)
 
 
 state 497
@@ -7206,7 +7206,7 @@ state 497
 	NAME  shift 183
 	STARSTAR  shift 182
 	'*'  shift 181
-	.  reduce 100 (src line 830)
+	.  reduce 100 (src line 833)
 
 	vfpdeftest  goto 374
 	vfpdef  goto 180
@@ -7223,31 +7223,31 @@ state 498
 state 499
 	vf_args_kwonly_kwargs:  '*' optional_vfpdef ',' STARSTAR vfpdef optional_comma.    (58)
 
-	.  reduce 58 (src line 608)
+	.  reduce 58 (src line 611)
 
 
 state 500
 	subscript:  test ':' test sliceop.    (295)
 
-	.  reduce 295 (src line 1888)
+	.  reduce 295 (src line 1891)
 
 
 state 501
 	comp_for:  FOR exprlist IN or_test comp_iter.    (324)
 
-	.  reduce 324 (src line 2118)
+	.  reduce 324 (src line 2121)
 
 
 state 502
 	comp_iter:  comp_for.    (321)
 
-	.  reduce 321 (src line 2096)
+	.  reduce 321 (src line 2099)
 
 
 state 503
 	comp_iter:  comp_if.    (322)
 
-	.  reduce 322 (src line 2102)
+	.  reduce 322 (src line 2105)
 
 
 state 504
@@ -7377,13 +7377,13 @@ state 506
 state 507
 	except_clause:  EXCEPT test AS NAME.    (196)
 
-	.  reduce 196 (src line 1350)
+	.  reduce 196 (src line 1353)
 
 
 state 508
 	typedargslist:  tfpdeftests1 ',' '/' ',' typedargslist_no_posonly.    (45)
 
-	.  reduce 45 (src line 530)
+	.  reduce 45 (src line 533)
 
 
 state 509
@@ -7393,7 +7393,7 @@ state 509
 	optional_comma: .    (99)
 
 	','  shift 520
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 413
 
@@ -7404,7 +7404,7 @@ state 510
 
 	NAME  shift 349
 	STARSTAR  shift 521
-	.  reduce 100 (src line 830)
+	.  reduce 100 (src line 833)
 
 	tfpdeftest  goto 459
 	tfpdef  goto 346
@@ -7412,7 +7412,7 @@ state 510
 state 511
 	tf_args_kwonly_kwargs:  '*' optional_tfpdef ',' tfpdeftests1 optional_comma.    (38)
 
-	.  reduce 38 (src line 494)
+	.  reduce 38 (src line 497)
 
 
 state 512
@@ -7420,7 +7420,7 @@ state 512
 	optional_comma: .    (99)
 
 	','  shift 381
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 522
 
@@ -7429,7 +7429,7 @@ state 513
 	optional_comma: .    (99)
 
 	','  shift 381
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 523
 
@@ -7440,7 +7440,7 @@ state 514
 	ASYNC  shift 312
 	FOR  shift 311
 	IF  shift 504
-	.  reduce 326 (src line 2135)
+	.  reduce 326 (src line 2138)
 
 	comp_if  goto 503
 	comp_iter  goto 524
@@ -7451,13 +7451,13 @@ state 515
 	or_test:  or_test.OR and_test 
 
 	OR  shift 171
-	.  reduce 206 (src line 1404)
+	.  reduce 206 (src line 1407)
 
 
 state 516
 	test_nocond:  lambdef_nocond.    (207)
 
-	.  reduce 207 (src line 1409)
+	.  reduce 207 (src line 1412)
 
 
 state 517
@@ -7467,7 +7467,7 @@ state 517
 	NAME  shift 183
 	STARSTAR  shift 182
 	'*'  shift 181
-	.  reduce 67 (src line 658)
+	.  reduce 67 (src line 661)
 
 	vfpdeftest  goto 178
 	vfpdef  goto 180
@@ -7480,7 +7480,7 @@ state 517
 state 518
 	elifs:  elifs ELIF test ':' suite.    (177)
 
-	.  reduce 177 (src line 1225)
+	.  reduce 177 (src line 1228)
 
 
 state 519
@@ -7568,7 +7568,7 @@ state 520
 	NAME  shift 349
 	STARSTAR  shift 348
 	'*'  shift 347
-	.  reduce 100 (src line 830)
+	.  reduce 100 (src line 833)
 
 	tfpdeftest  goto 459
 	tfpdef  goto 346
@@ -7585,19 +7585,19 @@ state 521
 state 522
 	tf_args_kwonly_kwargs:  '*' optional_tfpdef ',' STARSTAR tfpdef optional_comma.    (40)
 
-	.  reduce 40 (src line 502)
+	.  reduce 40 (src line 505)
 
 
 state 523
 	vf_args_kwonly_kwargs:  '*' optional_vfpdef ',' vfpdeftests1 ',' STARSTAR vfpdef optional_comma.    (57)
 
-	.  reduce 57 (src line 603)
+	.  reduce 57 (src line 606)
 
 
 state 524
 	comp_if:  IF test_nocond comp_iter.    (327)
 
-	.  reduce 327 (src line 2141)
+	.  reduce 327 (src line 2144)
 
 
 state 525
@@ -7610,7 +7610,7 @@ state 525
 state 526
 	try_stmt:  TRY ':' suite except_clauses ELSE ':' suite FINALLY ':' suite.    (188)
 
-	.  reduce 188 (src line 1304)
+	.  reduce 188 (src line 1307)
 
 
 state 527
@@ -7618,7 +7618,7 @@ state 527
 	optional_comma: .    (99)
 
 	','  shift 381
-	.  reduce 99 (src line 826)
+	.  reduce 99 (src line 829)
 
 	optional_comma  goto 529
 
@@ -7664,13 +7664,13 @@ state 528
 state 529
 	tf_args_kwonly_kwargs:  '*' optional_tfpdef ',' tfpdeftests1 ',' STARSTAR tfpdef optional_comma.    (39)
 
-	.  reduce 39 (src line 498)
+	.  reduce 39 (src line 501)
 
 
 state 530
 	lambdef_nocond:  LAMBDA optional_varargslist ':' test_nocond.    (209)
 
-	.  reduce 209 (src line 1420)
+	.  reduce 209 (src line 1423)
 
 
 96 terminals, 132 nonterminals
