@@ -62,6 +62,9 @@ func convertToComplex(other Object) (Complex, bool) {
 }
 
 func (a Complex) M__str__() (Object, error) {
+	if real(complex128(a)) == 0 {
+		return String(fmt.Sprintf("%gj", imag(complex128(a)))), nil
+	}
 	return String(fmt.Sprintf("(%g%+gj)", real(complex128(a)), imag(complex128(a)))), nil
 }
 

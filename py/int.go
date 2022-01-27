@@ -91,7 +91,7 @@ func IntFromString(str string, base int) (Object, error) {
 	var ok bool
 	s := str
 	negative := false
-	convertBase := base
+	convertBase := 0
 
 	// Get rid of padding
 	s = strings.TrimSpace(s)
@@ -111,7 +111,7 @@ func IntFromString(str string, base int) (Object, error) {
 	}
 
 	// Get rid of leading sigils and set convertBase
-	if len(s) > 1 && s[0] == '0' {
+	if base == 0 && len(s) > 1 && s[0] == '0' {
 		switch s[1] {
 		case 'x', 'X':
 			convertBase = 16
@@ -128,14 +128,13 @@ func IntFromString(str string, base int) (Object, error) {
 			convertBase = base // ignore sigil
 			goto nosigil
 		}
-		s = s[2:]
-		if len(s) == 0 {
+		if len(s) <= 2 {
 			goto error
 		}
 	nosigil:
 	}
-	if convertBase == 0 {
-		convertBase = 10
+	if convertBase == base {
+		convertBase = 0
 	}
 
 	// Detect leading zeros which Python doesn't allow using base 0

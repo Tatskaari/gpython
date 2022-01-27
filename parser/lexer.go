@@ -669,15 +669,38 @@ func (x *yyLex) readOperator() int {
 	return eof
 }
 
-const pointFloat = `([0-9]*\.[0-9]+|[0-9]+\.)`
+const digitPart = `(?:[0-9][0-9_]*)`
+const pointFloat = `(` + digitPart + `?\.` + digitPart + `|` + digitPart + `\.)`
+
+/*
+integer      ::=  decinteger | bininteger | octinteger | hexinteger
+decinteger   ::=  nonzerodigit (["_"] digit)* | "0"+ (["_"] "0")*
+bininteger   ::=  "0" ("b" | "B") (["_"] bindigit)+
+octinteger   ::=  "0" ("o" | "O") (["_"] octdigit)+
+hexinteger   ::=  "0" ("x" | "X") (["_"] hexdigit)+
+nonzerodigit ::=  "1"..."9"
+digit        ::=  "0"..."9"
+bindigit     ::=  "0" | "1"
+octdigit     ::=  "0"..."7"
+hexdigit     ::=  digit | "a"..."f" | "A"..."F"
+
+floatnumber   ::=  pointfloat | exponentfloat
+pointfloat    ::=  [digitpart] fraction | digitpart "."
+exponentfloat ::=  (digitpart | pointfloat) exponent
+digitpart     ::=  digit (["_"] digit)*
+fraction      ::=  "." digitpart
+exponent      ::=  ("e" | "E") ["+" | "-"] digitpart
+*/
 
 var (
-	decimalInteger        = regexp.MustCompile(`^[0-9]+[jJ]?`)
-	illegalDecimalInteger = regexp.MustCompile(`^0[0-9]*[1-9][0-9]*$`)
-	octalInteger          = regexp.MustCompile(`^0[oO][0-7]+`)
-	hexInteger            = regexp.MustCompile(`^0[xX][0-9a-fA-F]+`)
-	binaryInteger         = regexp.MustCompile(`^0[bB][01]+`)
-	floatNumber           = regexp.MustCompile(`^(([0-9]+|` + pointFloat + `)[eE][+-]?[0-9]+|` + pointFloat + `)[jJ]?`)
+	decimalInteger        = regexp.MustCompile(`^[0-9][_0-9.]*[jJ]?|^0[_0]*`)
+	illegalDecimalInteger = regexp.MustCompile(`^0[0-9_]*[1-9]+[0-9_]*$`)
+	illegalDecimalLiteral = regexp.MustCompile(`__|_$`)
+	octalInteger          = regexp.MustCompile(`^0[oO](?:_?[0-7])+`)
+	hexInteger            = regexp.MustCompile(`^0[xX](?:_?[0-9a-fA-F])+`)
+	binaryInteger         = regexp.MustCompile(`^0[bB](?:_?[01])+`)
+	floatNumber           = regexp.MustCompile(`^((` + digitPart + `|` + pointFloat + `)[eE][+-]?` + digitPart +
+		`|` + pointFloat + `)[jJ]?`)
 )
 
 // Read one of the many types of python number
@@ -705,17 +728,17 @@ isNumber:
 	var s string
 	var err error
 	if s = octalInteger.FindString(x.line); s != "" {
-		value, err = py.IntFromString(s[2:], 8)
+		value, err = py.IntFromString(s, 8)
 		if err != nil {
 			panic(err)
 		}
 	} else if s = hexInteger.FindString(x.line); s != "" {
-		value, err = py.IntFromString(s[2:], 16)
+		value, err = py.IntFromString(s, 16)
 		if err != nil {
 			panic(err)
 		}
 	} else if s = binaryInteger.FindString(x.line); s != "" {
-		value, err = py.IntFromString(s[2:], 2)
+		value, err = py.IntFromString(s, 2)
 		if err != nil {
 			panic(err)
 		}
@@ -729,6 +752,10 @@ isNumber:
 		}
 		value, err = py.FloatFromString(toParse)
 		if err != nil {
+			if illegalDecimalLiteral.FindString(s) != "" {
+				x.SyntaxError("illegal decimal literal")
+				return eofError, nil
+			}
 			panic(err)
 		}
 		if imaginary {
@@ -752,12 +779,17 @@ isNumber:
 			}
 			value, err = py.IntFromString(s, 10)
 			if err != nil {
+				// Numbers with repeated _ characters are not allowed.
+				if illegalDecimalLiteral.FindString(s) != "" || strings.ContainsRune(s, '.') {
+					x.SyntaxError("illegal decimal literal")
+					return eofError, nil
+				}
 				panic(err)
 			}
 
 		}
 	} else {
-		panic("Unparsed number")
+		panic("Unparsed number: " + x.line)
 	}
 	x.cut(len(s))
 	token = NUMBER

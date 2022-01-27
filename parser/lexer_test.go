@@ -596,9 +596,11 @@ func TestLexerReadNumber(t *testing.T) {
 		{"0o0", NUMBER, py.Int(0), ""},
 		{"0O765a", NUMBER, py.Int(0765), "a"},
 		{"0o0007779", NUMBER, py.Int(0777), "9"},
+		{"0o0007_779", NUMBER, py.Int(0777), "9"},
 
 		{"0x0", NUMBER, py.Int(0), ""},
 		{"0XaBcDeFg", NUMBER, py.Int(0xABCDEF), "g"},
+		{"0XaBc_DeFg", NUMBER, py.Int(0xABCDEF), "g"},
 		{"0x000123z", NUMBER, py.Int(0x123), "z"},
 		{"0x0b", NUMBER, py.Int(11), ""},
 
@@ -614,6 +616,8 @@ func TestLexerReadNumber(t *testing.T) {
 		{".1e1", NUMBER, py.Float(1), ""},
 		{"0.1e-01", NUMBER, py.Float(0.01), ""},
 		{"00000.10000E-000001", NUMBER, py.Float(0.01), ""},
+		{"000_00.100_00E-000_001", NUMBER, py.Float(0.01), ""},
+		{"1_234.50", NUMBER, py.Float(1234.50), ""},
 		{"1.j", NUMBER, py.Complex(complex(0, 1)), ""},
 		{".1j", NUMBER, py.Complex(complex(0, .1)), ""},
 		{"0.1j", NUMBER, py.Complex(complex(0, 0.1)), ""},
@@ -628,6 +632,8 @@ func TestLexerReadNumber(t *testing.T) {
 		{"01", eofError, nil, "01"},
 		{"00", NUMBER, py.Int(0), ""},
 		{"123", NUMBER, py.Int(123), ""},
+		{"12_3", NUMBER, py.Int(123), ""},
+		{"0_000", NUMBER, py.Int(0), ""},
 		{"0123", eofError, nil, "0123"},
 		{"0123j", NUMBER, py.Complex(complex(0, 123)), ""},
 		{"00j", NUMBER, py.Complex(complex(0, 0)), ""},
@@ -636,6 +642,27 @@ func TestLexerReadNumber(t *testing.T) {
 		token, value := x.readNumber()
 		if token != test.token || value != test.value || x.line != test.out {
 			t.Errorf("readNumber(%q) got (%q,%T,%#v) remainder %q, expected (%q,%T,%#v) remainder %q", test.in, tokenToString[token], value, value, x.line, tokenToString[test.token], test.value, test.value, test.out)
+		}
+	}
+}
+
+func TestLexerReadIllegalNumber(t *testing.T) {
+	for _, test := range []struct {
+		in  string
+		msg string
+	}{
+		{"1__234", "illegal decimal literal"},
+		{"1__234.50", "illegal decimal literal"},
+		{"1_234.50_", "illegal decimal literal"},
+	} {
+		x := yyLex{
+			line: test.in,
+		}
+		x.readNumber()
+
+		if x.errorString != test.msg {
+			t.Errorf("readNumber(%q) had error %q, expected %q",
+				test.in, x.errorString, test.msg)
 		}
 	}
 }
