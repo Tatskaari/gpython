@@ -1355,28 +1355,25 @@ func (c *compiler) NameOp(name string, ctx ast.ExprContext) {
 
 // Call a function which is already on the stack with n arguments already on the stack
 func (c *compiler) callHelper(n int, Args []ast.Expr, Keywords []*ast.Keyword) {
-	args := len(Args) + n
+	argCount := len(Args) + n
 	op := vm.CALL_FUNCTION
+
+	var starArgs *ast.Starred
+	var kwargs ast.Expr
+
 	for i := range Args {
-		if _, ok := Args[i].(*ast.Starred); ok {
-			op = vm.CALL_FUNCTION_VAR
+		if s, ok := Args[i].(*ast.Starred); ok {
+			starArgs = s
+			continue
 		}
 		c.Expr(Args[i])
 	}
-	kwargs := len(Keywords)
 	duplicateDetector := make(map[ast.Identifier]struct{}, len(Keywords))
 	var duplicate *ast.Keyword
 	for i := range Keywords {
 		if Keywords[i].Arg == "" {
-			if v, ok := Keywords[i].Value.(*ast.StarStarred); ok {
-				if op == vm.CALL_FUNCTION {
-					op = vm.CALL_FUNCTION_KW
-				} else {
-					op = vm.CALL_FUNCTION_VAR_KW
-				}
-				c.Expr(v)
-				continue
-			}
+			kwargs = Keywords[i].Value
+			continue
 		}
 		kw := Keywords[i]
 		if _, found := duplicateDetector[kw.Arg]; found {
@@ -1392,7 +1389,24 @@ func (c *compiler) callHelper(n int, Args []ast.Expr, Keywords []*ast.Keyword) {
 	if duplicate != nil {
 		c.panicSyntaxErrorf(duplicate, "keyword argument repeated")
 	}
-	c.OpArg(op, uint32(args+kwargs<<8))
+
+	if starArgs != nil {
+		op = vm.CALL_FUNCTION_VAR
+		c.Expr(starArgs.Value)
+		argCount--
+	}
+
+	kwargCount := len(Keywords)
+	if kwargs != nil {
+		if op == vm.CALL_FUNCTION_VAR {
+			op = vm.CALL_FUNCTION_VAR_KW
+		} else {
+			op = vm.CALL_FUNCTION_KW
+		}
+		c.Expr(kwargs)
+		kwargCount--
+	}
+	c.OpArg(op, uint32(argCount+kwargCount<<8))
 }
 
 /* List and set comprehensions and generator expressions work by creating a
