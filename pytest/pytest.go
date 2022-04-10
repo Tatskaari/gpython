@@ -5,18 +5,22 @@
 package pytest
 
 import (
-	"io/ioutil"
+	"bytes"
+	"io"
 	"os"
 	"path"
+	"path/filepath"
 	"strings"
 	"testing"
 
-	_ "github.com/go-python/gpython/builtin"
 	"github.com/go-python/gpython/compile"
 	"github.com/go-python/gpython/py"
-	_ "github.com/go-python/gpython/sys"
-	"github.com/go-python/gpython/vm"
+	"github.com/google/go-cmp/cmp"
+
+	_ "github.com/go-python/gpython/stdlib"
 )
+
+var gContext = py.NewContext(py.DefaultContextOpts())
 
 // Compile the program in the file prog to code in the module that is returned
 func compileProgram(t testing.TB, prog string) (*py.Module, *py.Code) {
@@ -30,31 +34,36 @@ func compileProgram(t testing.TB, prog string) (*py.Module, *py.Code) {
 		}
 	}()
 
-	str, err := ioutil.ReadAll(f)
+	str, err := io.ReadAll(f)
 	if err != nil {
 		t.Fatalf("%s: ReadAll failed: %v", prog, err)
 	}
+	return CompileSrc(t, gContext, string(str), prog)
+}
 
-	obj, err := compile.Compile(string(str), prog, "exec", 0, true)
+func CompileSrc(t testing.TB, ctx py.Context, pySrc string, prog string) (*py.Module, *py.Code) {
+	code, err := compile.Compile(string(pySrc), prog, py.ExecMode, 0, true)
 	if err != nil {
 		t.Fatalf("%s: Compile failed: %v", prog, err)
 	}
 
-	code := obj.(*py.Code)
-	module := py.NewModule("__main__", "", nil, nil)
-	module.Globals["__file__"] = py.String(prog)
+	module, err := ctx.Store().NewModule(ctx, &py.ModuleImpl{
+		Info: py.ModuleInfo{
+			FileDesc: prog,
+		},
+	})
+	if err != nil {
+		t.Fatalf("%s: NewModule failed: %v", prog, err)
+	}
+
 	return module, code
 }
 
 // Run the code in the module
 func run(t testing.TB, module *py.Module, code *py.Code) {
-	_, err := vm.Run(module.Globals, module.Globals, code, nil)
+	_, err := gContext.RunCode(code, module.Globals, module.Globals, nil)
 	if err != nil {
-		if wantErr, ok := module.Globals["err"]; ok {
-			wantErrObj, ok := wantErr.(py.Object)
-			if !ok {
-				t.Fatalf("want err is not py.Object: %#v", wantErr)
-			}
+		if wantErrObj, ok := module.Globals["err"]; ok {
 			gotExc, ok := err.(py.ExceptionInfo)
 			if !ok {
 				t.Fatalf("got err is not ExceptionInfo: %#v", err)
@@ -86,7 +95,7 @@ func run(t testing.TB, module *py.Module, code *py.Code) {
 
 // find the python files in the directory passed in
 func findFiles(t testing.TB, testDir string) (names []string) {
-	files, err := ioutil.ReadDir(testDir)
+	files, err := os.ReadDir(testDir)
 	if err != nil {
 		t.Fatalf("ReadDir failed: %v", err)
 	}
@@ -118,5 +127,59 @@ func RunBenchmarks(b *testing.B, testDir string) {
 				run(b, module, code)
 			}
 		})
+	}
+}
+
+// RunScript runs the provided path to a script.
+// RunScript captures the stdout and stderr while executing the script
+// and compares it to a golden file:
+//  RunScript("./testdata/foo.py")
+// will compare the output with "./testdata/foo_golden.txt".
+func RunScript(t *testing.T, fname string) {
+	opts := py.DefaultContextOpts()
+	opts.SysArgs = []string{fname}
+	ctx := py.NewContext(opts)
+	defer ctx.Close()
+
+	sys := ctx.Store().MustGetModule("sys")
+	tmp, err := os.MkdirTemp("", "gpython-pytest-")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer os.RemoveAll(tmp)
+
+	out, err := os.Create(filepath.Join(tmp, "combined"))
+	if err != nil {
+		t.Fatalf("could not create stdout/stderr: %+v", err)
+	}
+	defer out.Close()
+
+	sys.Globals["stdout"] = &py.File{File: out, FileMode: py.FileWrite}
+	sys.Globals["stderr"] = &py.File{File: out, FileMode: py.FileWrite}
+
+	_, err = py.RunFile(ctx, fname, py.CompileOpts{}, nil)
+	if err != nil {
+		t.Fatalf("could not run script %q: %+v", fname, err)
+	}
+
+	err = out.Close()
+	if err != nil {
+		t.Fatalf("could not close stdout/stderr: %+v", err)
+	}
+
+	got, err := os.ReadFile(out.Name())
+	if err != nil {
+		t.Fatalf("could not read script output: %+v", err)
+	}
+
+	ref := fname[:len(fname)-len(".py")] + "_golden.txt"
+	want, err := os.ReadFile(ref)
+	if err != nil {
+		t.Fatalf("could not read golden output %q: %+v", ref, err)
+	}
+
+	diff := cmp.Diff(string(want), string(got))
+	if !bytes.Equal(got, want) {
+		t.Fatalf("output differ: -- (-ref +got)\n%s", diff)
 	}
 }

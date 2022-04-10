@@ -8,7 +8,7 @@ import (
 
 var symtableTestData = []struct {
 	in            string
-	mode          string // exec, eval or single
+	mode          py.CompileMode
 	out           *SymTable
 	exceptionType *py.Type
 	errString     string

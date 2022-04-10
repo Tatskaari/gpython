@@ -253,7 +253,7 @@ func (a Int) M__pos__() (Object, error) {
 
 func (a Int) M__abs__() (Object, error) {
 	if a == IntMin {
-		// FIXME upconvert
+		return a.M__neg__()
 	}
 	if a < 0 {
 		return -a, nil

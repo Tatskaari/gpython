@@ -21,6 +21,15 @@ func time_time(self py.Object) (py.Object, error) {
 	return py.Float(time.Now().UnixNano()) / 1e9, nil
 }
 
+const time_ns_doc = `time_ns() -> int
+
+Return the current time in nanoseconds since the Epoch.
+`
+
+func time_time_ns(self py.Object) (py.Object, error) {
+	return py.Int(time.Now().UnixNano()), nil
+}
+
 // func floatclock(_Py_clock_info_t *info) (py.Object, error) {
 // 	value := clock()
 // 	if value == (clock_t)-1 {
@@ -141,7 +150,7 @@ func time_sleep(self py.Object, args py.Tuple) (py.Object, error) {
 	if secs < 0 {
 		return nil, py.ExceptionNewf(py.ValueError, "sleep length must be non-negative")
 	}
-	time.Sleep(time.Duration(secs * 1e9))
+	time.Sleep(time.Duration(secs * py.Float(time.Second)))
 	return py.None, nil
 }
 
@@ -979,6 +988,7 @@ func PyInit_timezone(m py.Object) {
 func init() {
 	methods := []*py.Method{
 		py.MustNewMethod("time", time_time, 0, time_doc),
+		py.MustNewMethod("time_ns", time_time_ns, 0, time_ns_doc),
 		py.MustNewMethod("clock", time_clock, 0, clock_doc),
 		py.MustNewMethod("clock_gettime", time_clock_gettime, 0, clock_gettime_doc),
 		py.MustNewMethod("clock_settime", time_clock_settime, 0, clock_settime_doc),
@@ -997,11 +1007,15 @@ func init() {
 		py.MustNewMethod("perf_counter", time_perf_counter, 0, perf_counter_doc),
 		py.MustNewMethod("get_clock_info", time_get_clock_info, 0, get_clock_info_doc),
 	}
-	globals := py.StringDict{
-		//"version": py.Int(MARSHAL_VERSION),
-	}
-	py.NewModule("time", module_doc, methods, globals)
 
+	py.RegisterModule(&py.ModuleImpl{
+		Info: py.ModuleInfo{
+			Name: "time",
+			Doc:  module_doc,
+		},
+		Methods: methods,
+		Globals: py.StringDict{},
+	})
 }
 
 const module_doc = `This module provides various functions to manipulate time values.
@@ -1037,6 +1051,7 @@ tzname -- tuple of (standard time zone name, DST time zone name)
 Functions:
 
 time() -- return current time in seconds since the Epoch as a float
+time_ns() -- return current time in nanoseconds since the Epoch
 clock() -- return CPU time since process start as a float
 sleep() -- delay for a number of seconds given as a float
 gmtime() -- convert seconds since Epoch to UTC tuple

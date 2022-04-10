@@ -10,3 +10,7 @@ cover.out
 /dist
 *.so
 *.dll
+
+# tests
+stdlib/builtin/testfile
+examples/embedding/embedding
